@@ -5,7 +5,8 @@ const validateLoginInput = require('../../validation/login');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
-
+const bcrypt = require('bcryptjs');
+const User = require('../../models/User');
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({
@@ -63,12 +64,12 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const handle = req.body.handle;
+  const email = req.body.email
   const password = req.body.password;
 
-  User.findOne({ handle }).then(user => {
+  User.findOne({ email }).then(user => {
     if (!user) {
-      errors.handle = "This user does not exist";
+      errors.email = "This user does not exist";
       return res.status(400).json(errors);
     }
 

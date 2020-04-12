@@ -29,6 +29,8 @@ export const signup = user => dispatch => (
     dispatch(receiveUserSignIn())
   ), err => (
     dispatch(receiveErrors(err.response.data))
+  )).then(() => (
+    dispatch(login(user))
   ))
 );
 
