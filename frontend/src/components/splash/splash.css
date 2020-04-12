@@ -1,0 +1,29 @@
+.splash-container {
+  display: flex;
+}
+
+.splash-left-container {
+  min-width: 500px;
+  min-height: 500px;
+  height: 680px;
+  width: 100%;
+}
+
+.splash-right-container {
+  display: flex;
+  position: absolute;
+  right: 0;
+  justify-content: center;
+  min-width: 300px;
+  min-height: 500px;
+  width: 30%;
+  height: 680px;
+}
+
+.splash-image {
+  height: 680px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('/robert-coelho-A5hjI0-6yHk-unsplash.jpg');
+}

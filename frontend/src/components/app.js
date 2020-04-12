@@ -3,17 +3,17 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch } from 'react-router-dom';
 import NavBarContainer from './nav/nav_container';
 import MainPage from './main/main_page';
-import LoginFormContainer from './session/login_form_container';
-import SignupFormContainer from './session/signup_form_container';
+import Footer from './footer/footer';
+import SplashPage from './splash/splash_page';
 
 const App = () => (
-  <div>
+  <div className="main-div">
     <NavBarContainer />
     <Switch>
-      <AuthRoute exact path="/main" component={MainPage} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <ProtectedRoute exact path="/" component={MainPage} />
+      <AuthRoute exact path="/splash" component={SplashPage} />
     </Switch>
+    <Footer />
   </div>
 );
 

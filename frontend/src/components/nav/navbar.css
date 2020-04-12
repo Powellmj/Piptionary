@@ -5,6 +5,7 @@
   align-items: center;
   box-shadow: 1px 1px 3px rgb(194, 194, 194);
   padding: 0 20px;
+  margin-bottom: 1px;
 }
 
 .navbar-piptionary-logo {
@@ -22,6 +23,7 @@
 
 .navbar-piptionary-logo-text {
   margin-left: 10px;
+  font-size: 20px;
   font-weight: bold;
   color: #4389c5;
 }
@@ -38,7 +40,7 @@
   color: white;
   font-weight: bold;
   height: 40px;
-  width: 100px;
+  width: 150px;
   background-color: #4389c5;
   margin: 5px;
   border-radius: 5px;
@@ -48,10 +50,6 @@
 
 .navbar-button:hover {
   background-color: #5f9fd4
-}
-
-.nav-signup {
-  text-shadow: 1px 1px #1c4a72;
 }
 
 .nav-login {

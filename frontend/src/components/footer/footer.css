@@ -1,0 +1,38 @@
+.footer-container {
+  position: relative;
+  background-color: #2f363f;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  color: white;
+}
+
+.footer-creator {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.footer-picture {
+  height: 40px;
+  width: 40px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.footer-name {
+  font-weight: bold;
+}
+
+.footer-link {
+  color: rgb(150, 150, 150);
+  font-size: 15px;
+  margin: 0 5px;
+}

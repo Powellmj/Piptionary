@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
-import LoginForm from './login_form';
+import { signup, login } from '../../actions/session_actions';
+import SplashPage from '../session/session_form';
 
 const mapStateToProps = (state) => {
   return {
+    signedIn: state.session.isSignedIn,
     errors: state.errors.session
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    signup: user => dispatch(signup(user)),
     login: user => dispatch(login(user))
   }
 }
@@ -17,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoginForm);
+)(SplashPage);
