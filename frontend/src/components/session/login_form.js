@@ -15,13 +15,6 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push('/');
-    }
-    this.setState({ errors: nextProps.errors })
-  }
-
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -37,6 +30,7 @@ class LoginForm extends React.Component {
     };
 
     this.props.login(user);
+    this.props.history.push('/');
   }
 
   renderErrors() {

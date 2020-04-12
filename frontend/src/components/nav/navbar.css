@@ -1,0 +1,65 @@
+.navbar-container {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 1px 3px rgb(194, 194, 194);
+  padding: 0 20px;
+}
+
+.navbar-piptionary-logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar-piptionary-logo-image {
+  background-image: url('/piptionarylogo.png');
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+}
+
+.navbar-piptionary-logo-text {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #4389c5;
+}
+
+.navbar-session-buttons {
+  display: flex;
+}
+
+.navbar-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  height: 40px;
+  width: 100px;
+  background-color: #4389c5;
+  margin: 5px;
+  border-radius: 5px;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.navbar-button:hover {
+  background-color: #5f9fd4
+}
+
+.nav-signup {
+  text-shadow: 1px 1px #1c4a72;
+}
+
+.nav-login {
+  background-color: white;
+  color: #4389c5;
+  border: 1px solid #4389c5;
+}
+
+.nav-login:hover {
+  background-color: #ebf5fd;
+}

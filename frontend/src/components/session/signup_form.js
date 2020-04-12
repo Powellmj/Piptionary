@@ -15,14 +15,6 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
-    }
-
-    this.setState({ errors: nextProps.errors })
-  }
-
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -37,6 +29,7 @@ class SignupForm extends React.Component {
       password: this.state.password,
     };
     this.props.signup(user);
+    this.props.history.push('/');
   }
 
   renderErrors() {
