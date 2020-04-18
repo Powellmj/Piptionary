@@ -14,7 +14,13 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  date: {
+  notes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "notes"
+    }
+  ],
+  created_at: {
     type: Date,
     default: Date.now
   }

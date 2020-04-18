@@ -14,9 +14,8 @@
   position: absolute;
   right: 0;
   justify-content: center;
-  min-width: 300px;
+  min-width: 400px;
   min-height: 500px;
-  width: 30%;
   height: 680px;
 }
 
@@ -26,4 +25,11 @@
   background-position: center;
   background-repeat: no-repeat;
   background-image: url('/robert-coelho-A5hjI0-6yHk-unsplash.jpg');
+}
+
+@media screen and (max-width: 480px) {
+  .splash-right-container {
+    width: 100%;
+    left: 0;
+  }
 }

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 400px;
 }
 
 .session-form {
@@ -110,4 +111,31 @@
 
 .login-input:last-child {
   margin-bottom: 30px;
+}
+
+/* XLarge */
+
+@media screen and (max-width: 1800px) {
+}
+
+/* Large */
+
+@media screen and (max-width: 1280px) {
+}
+
+/* Medium */
+
+@media screen and (max-width: 980px) {
+}
+
+/* Small */
+
+@media screen and (max-width: 736px) {
+}
+
+/* XSmall */
+
+@media screen and (max-width: 480px) {
+
+
 }

@@ -5,8 +5,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <div>
-        <footer>
-        </footer>
+        smileyface
       </div>
     );
   }

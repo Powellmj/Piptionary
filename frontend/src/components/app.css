@@ -1,0 +1,16 @@
+.main-content {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 480px) {
+  .main-content {
+    min-width: 400px;
+  }
+  #root {
+    min-width: 400px;
+  }
+  body {
+    min-width: 400px;
+  }
+}

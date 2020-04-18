@@ -33,8 +33,10 @@ class NavBar extends React.Component {
     } else {
       return (
         <div className="navbar-session-buttons">
-          <div className="navbar-button nav-signup" onClick={this.handleClick}>Signup</div>
-          <div className="navbar-button nav-login" onClick={this.handleClick}>Login</div>
+          {this.props.formType === 'signup' ?
+            <div className="navbar-button nav-login" onClick={this.handleClick}>Login</div> :
+            <div className="navbar-button nav-signup" onClick={this.handleClick}>Signup</div>
+          }
         </div>
       );
     }
