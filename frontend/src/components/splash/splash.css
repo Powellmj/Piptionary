@@ -14,7 +14,7 @@
   position: absolute;
   right: 0;
   justify-content: center;
-  min-width: 400px;
+  min-width: 320px;
   min-height: 500px;
   height: 680px;
 }
@@ -32,4 +32,8 @@
     width: 100%;
     left: 0;
   }
+.splash-left-container {
+  height: 100%;
+}
+
 }

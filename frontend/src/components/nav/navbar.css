@@ -1,6 +1,6 @@
 .navbar-container {
   height: 70px;
-  min-width: 400px;
+  min-width: 320px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,6 +31,7 @@
 
 .navbar-session-buttons {
   display: flex;
+  margin-right: 20px;
 }
 
 .navbar-button {
@@ -41,7 +42,7 @@
   color: white;
   font-weight: bold;
   height: 40px;
-  width: 150px;
+  width: 100px;
   background-color: #4389c5;
   margin: 5px;
   border-radius: 5px;
@@ -61,4 +62,20 @@
 
 .nav-login:hover {
   background-color: #ebf5fd;
+}
+
+/* XSmall */
+
+@media screen and (max-width: 480px) {
+  .navbar-session-buttons {
+    display: flex;
+    margin-right: 40px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .navbar-session-buttons {
+    display: flex;
+    margin-right: 70px;
+  }
 }
