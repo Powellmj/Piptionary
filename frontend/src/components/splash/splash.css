@@ -1,5 +1,6 @@
 .splash-container {
   display: flex;
+  min-width: 320px;
 }
 
 .splash-left-container {
