@@ -5,12 +5,12 @@
 
 @media screen and (max-width: 480px) {
   .main-content {
-    min-width: 400px;
+  min-width: 320px;
   }
   #root {
-    min-width: 400px;
+  min-width: 320px;
   }
   body {
-    min-width: 400px;
+  min-width: 320px;
   }
 }
