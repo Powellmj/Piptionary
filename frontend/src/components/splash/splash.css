@@ -3,10 +3,10 @@
 }
 
 .splash-left-container {
-  min-width: 500px;
+  min-width: 320px;
   min-height: 500px;
   height: 680px;
-  width: 100%;
+  width: 100vw;
 }
 
 .splash-right-container {
