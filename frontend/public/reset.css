@@ -16,11 +16,11 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  margin: 0;
-	padding: 0;
-	border: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
     font-size: 100%;
-	vertical-align: baseline;
+    vertical-align: baseline;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -371,8 +371,9 @@ textarea {
 }
 
 html, body {
+  min-width: 320px;
+  width: 100%;
   margin: 0; 
-  height: 100%; 
   overflow: hidden;
 }
 
