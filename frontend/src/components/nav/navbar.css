@@ -1,4 +1,4 @@
-/* .navbar-container {
+.navbar-container {
   height: 70px;
   min-width: 320px;
   display: flex;
@@ -63,11 +63,3 @@
 .nav-login:hover {
   background-color: #ebf5fd;
 }
-
-/* XSmall */
-
-@media screen and (max-width: 480px) {
-}
-
-@media screen and (max-width: 350px) {
-} */

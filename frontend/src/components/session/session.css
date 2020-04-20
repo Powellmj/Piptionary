@@ -1,4 +1,4 @@
-/* .session-form-box {
+.session-form-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -112,11 +112,3 @@
 .login-input:last-child {
   margin-bottom: 30px;
 }
-
-/* Small */
-
-@media screen and (max-width: 380px) {
-  .session-form-box {
-    min-width: 320px;
-  }
-} */

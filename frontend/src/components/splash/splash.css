@@ -1,26 +1,22 @@
-/* .splash-container {
+.splash-container {
   display: flex;
   min-width: 320px;
   width: 100%;
 }
 
 .splash-left-container {
-  min-width: 320px;
-  min-height: 500px;
-  height: 680px;
-  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .splash-right-container {
   display: flex;
   position: absolute;
   right: 0;
-  justify-content: center;
-  min-width: 320px;
-  max-width: 400px;
-  min-height: 500px;
-  width: 100%;
-  height: 680px;
+  justify-content: flex-end;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
 .splash-image {
@@ -30,14 +26,3 @@
   background-repeat: no-repeat;
   background-image: url('/robert-coelho-A5hjI0-6yHk-unsplash.jpg');
 }
-
-@media screen and (max-width: 480px) {
-  .splash-right-container {
-    max-width: 480px;
-    left: 0;
-  }
-.splash-left-container {
-    height: 100%;
-  }
-
-} */

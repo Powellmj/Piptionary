@@ -1,4 +1,4 @@
-/* .notes-container {
+.notes-container {
   width: 100%;
   height: calc(100vh - 210px);
 }
@@ -17,4 +17,4 @@
   background-color: rgb(235, 235, 235);
   border: 1px solid gray;
   height: 90% !important;
-} */
+}
