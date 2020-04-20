@@ -1,6 +1,6 @@
 .splash-container {
   display: flex;
-  min-width: 320px;
+  min-width: 380px;
   width: 100%;
 }
 
@@ -12,8 +12,8 @@
 .splash-right-container {
   display: flex;
   position: absolute;
-  right: 0;
   justify-content: flex-end;
+  right: 0;
   height: 100vh;
   padding: 0;
   margin: 0;
@@ -25,4 +25,11 @@
   background-position: center;
   background-repeat: no-repeat;
   background-image: url('/robert-coelho-A5hjI0-6yHk-unsplash.jpg');
+}
+
+@media screen and (max-width: 380px) {
+  .splash-right-container {
+    left: 0;
+    justify-content: flex-start;
+  }
 }

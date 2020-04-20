@@ -46,9 +46,11 @@ export const signup = user => dispatch => (
     dispatch(receiveUserSignIn())
   ), err => (
     dispatch(receiveErrors(err.response.data))
-  )).then(() => (
-    dispatch(login(user))
-  ))
+  )).then((data) => {
+    if (data.type === "RECEIVE_USER_SIGN_IN") {
+      return dispatch(login(user))
+    }
+  })
 );
 
 export const login = user => dispatch => (

@@ -46,8 +46,7 @@ class SessionForm extends React.Component {
         <div className="errors">
           <ul className="errors-list">
             {this.props.errors.map((error, i) => (
-              <li className="error" key={`error-${i}`}>
-                <p className='red-edge'></p>
+              <li className="alert alert-danger error" key={`error-${i}`}>
                 <i className="fas fa-skull-crossbones session-error-icon"></i>
                 {error}
               </li>
@@ -65,39 +64,39 @@ class SessionForm extends React.Component {
           <div className="welcome">Welcome to Piptionary!</div>
           <div className="session-instructions">{this.instructions()}</div>
           <div className="session-form">
-            <div className="session-input-field">
+            <div className="form-group session-input-field">
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 placeholder="LiaMe@piptionary.com"
-                className="session-input"
+                className="form-control form-control-lg session-input"
               />
               <label className="session-input-label">Email</label>
             </div>
               {this.props.formType === 'signup' ?
-              <div className="session-input-field">
+              <div className="form-group session-input-field">
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
                 placeholder="A rose by any other name"
-                className="session-input"
+                className="form-control form-control-lg session-input"
               />
               <label className="session-input-label">Username</label>
             </div>
              : null}
-            <div className="session-input-field">
+            <div className="form-group session-input-field">
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 placeholder="Make it super secure!"
-                className="session-input"
+                className="form-control form-control-lg session-input"
               />
               <label className="session-input-label">Password</label>
             </div>
               <input 
                 type="submit" 
                 value="Submit"
-                className="session-submit" 
+                className="btn btn-primary btn-lg session-submit" 
               />
           </div>
           {this.renderErrors()}
