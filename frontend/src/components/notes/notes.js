@@ -1,5 +1,5 @@
 import React from 'react';
-import './notes.css'
+import './notes.scss'
 import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import { Editor } from 'react-draft-wysiwyg';

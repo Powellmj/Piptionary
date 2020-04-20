@@ -1,6 +1,6 @@
 import React from 'react';
 import SessionFormContainer from '../session/session_form_container';
-import './splash.css'
+import './splash.scss'
 
 class MainPage extends React.Component {
 

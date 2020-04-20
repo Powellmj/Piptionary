@@ -7,7 +7,7 @@ import MainPage from './main/main_page';
 import Notes from './notes/notes_container';
 import Footer from './footer/footer';
 import SplashPage from './splash/splash_page';
-import './app.css'
+import './app.scss'
 
 const App = () => (
   <div className="main-div">
