@@ -8,11 +8,11 @@ class SessionForm extends React.Component {
     this.state = {
       email: '',
       username: '',
-      password: '',
+      password: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.instructions = this.instructions.bind(this)
+    this.instructions = this.instructions.bind(this);
     this.clearedErrors = false;
   }
 
@@ -62,7 +62,7 @@ class SessionForm extends React.Component {
     return (
       <div className="session-form-container">
         <form onSubmit={this.handleSubmit} className="session-form-box">
-          <div className="welcome"> Welcome to Piptionary! </div>
+          <div className="welcome">Welcome to Piptionary!</div>
           <div className="session-instructions">{this.instructions()}</div>
           <div className="session-form">
             <div className="session-input-field">

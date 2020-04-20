@@ -6,6 +6,7 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 export const RECEIVE_SESSION_CHANGE = "RECEIVE_SESSION_CHANGE";
+export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
@@ -25,10 +26,20 @@ export const logoutUser = () => ({
   type: RECEIVE_USER_LOGOUT
 });
 
-export const changeSession = (formType) => ({
+export const changeSessionFlag = formType => ({
   type: RECEIVE_SESSION_CHANGE,
   formType
 });
+
+export const clearSessionErrors = () => ({
+  type: CLEAR_SESSION_ERRORS
+});
+
+export const changeSession = formType => dispatch => (
+  dispatch(changeSessionFlag(formType)),
+  dispatch(clearSessionErrors()
+  )
+)
 
 export const signup = user => dispatch => (
   APIUtil.signup(user).then(() => (
