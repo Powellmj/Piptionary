@@ -29,9 +29,10 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let user = {
-      email: this.state.email,
+      email: this.state.email.toLowerCase(),
       password: this.state.password,
     };
+    console.log(user.email)
     if (this.props.formType === 'signup') {
       user.username = this.state.username
       this.props.signup(user)
@@ -71,7 +72,7 @@ class SessionForm extends React.Component {
                 placeholder="LiaMe@piptionary.com"
                 className="form-control form-control-lg session-input"
               />
-              <label className="session-input-label">Email</label>
+              <label className="session-input-label">Email:</label>
             </div>
               {this.props.formType === 'signup' ?
               <div className="form-group session-input-field">
@@ -81,7 +82,7 @@ class SessionForm extends React.Component {
                 placeholder="A rose by any other name"
                 className="form-control form-control-lg session-input"
               />
-              <label className="session-input-label">Username</label>
+              <label className="session-input-label">Username:</label>
             </div>
              : null}
             <div className="form-group session-input-field">
@@ -91,7 +92,7 @@ class SessionForm extends React.Component {
                 placeholder="Make it super secure!"
                 className="form-control form-control-lg session-input"
               />
-              <label className="session-input-label">Password</label>
+              <label className="session-input-label">Password:</label>
             </div>
               <input 
                 type="submit" 

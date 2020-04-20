@@ -10,7 +10,7 @@ class MainPage extends React.Component {
         <div className="container-fluid splash-left-container">
           <div>
             <div>
-              <div className="splash-image"></div>
+              <div className="bg-img splash-image"></div>
             </div>
           </div>
         </div>

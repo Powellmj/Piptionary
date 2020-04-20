@@ -5,8 +5,7 @@
 }
 
 .splash-left-container {
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
 }
 
 .splash-right-container {
@@ -20,16 +19,12 @@
 }
 
 .splash-image {
-  height: 680px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  min-height: 680px;
   background-image: url('/robert-coelho-A5hjI0-6yHk-unsplash.jpg');
 }
 
 @media screen and (max-width: 380px) {
   .splash-right-container {
-    left: 0;
     justify-content: flex-start;
   }
 }
