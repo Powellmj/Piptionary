@@ -25,7 +25,7 @@ class NavBar extends React.Component {
     e.preventDefault();
     let theme = this.props.theme === 'dark' ? 'light' : 'dark'
     this.props.toggleTheme(`${theme}`)
-    document.querySelector('.main-div').className = `${theme} main-div`
+    document.querySelector('.main-div').className = `theme-${theme} main-div`
   }
 
   getLinks() {

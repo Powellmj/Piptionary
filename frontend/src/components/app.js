@@ -10,7 +10,7 @@ import SplashPage from './splash/splash_page';
 import './app.scss'
 
 const App = (props) => (
-  <div className={ props.store.getState().ui.theme === 'darkmode' ? "darkmode main-div" : "default main-div" }>
+  <div className={ props.store.getState().ui.theme === 'darkmode' ? "theme-dark main-div" : "theme-light main-div" }>
     <NavBarContainer />
     <div className="main-content">
       <SideBarContainer />
