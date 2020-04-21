@@ -32,7 +32,6 @@ class SessionForm extends React.Component {
       email: this.state.email.toLowerCase(),
       password: this.state.password,
     };
-    console.log(user.email)
     if (this.props.formType === 'signup') {
       user.username = this.state.username
       this.props.signup(user)

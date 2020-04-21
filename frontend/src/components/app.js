@@ -9,8 +9,8 @@ import Footer from './footer/footer';
 import SplashPage from './splash/splash_page';
 import './app.scss'
 
-const App = () => (
-  <div className="main-div">
+const App = (props) => (
+  <div className={ props.store.getState().ui.theme === 'darkmode' ? "darkmode main-div" : "default main-div" }>
     <NavBarContainer />
     <div className="main-content">
       <SideBarContainer />

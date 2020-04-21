@@ -6,7 +6,8 @@ class NavBar extends React.Component {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.switchSession = this.switchSession.bind(this);
+    this.toggleTheme = this.toggleTheme.bind(this);
   }
 
   logoutUser(e) {
@@ -14,13 +15,17 @@ class NavBar extends React.Component {
     this.props.logout();
   }
 
-  handleClick(e) {
+  switchSession(e) {
     e.preventDefault();
-    if (e.currentTarget.className === "btn btn-primary navbar-button nav-signup") {
-      this.props.changeSession('signup')
-    } else {
-      this.props.changeSession('login')
-    }
+    e.currentTarget.className === "btn btn-primary navbar-button nav-signup" ? 
+    this.props.changeSession('signup') : this.props.changeSession('login')
+  }
+
+  toggleTheme(e) {
+    e.preventDefault();
+    let theme = this.props.theme === 'dark' ? 'light' : 'dark'
+    this.props.toggleTheme(`${theme}`)
+    document.querySelector('.main-div').className = `${theme} main-div`
   }
 
   getLinks() {
@@ -34,9 +39,10 @@ class NavBar extends React.Component {
       return (
         <div className="navbar-session-buttons">
           {this.props.formType === 'signup' ?
-            <div className="btn btn-primary navbar-button nav-login" onClick={this.handleClick}>Login</div> :
-            <div className="btn btn-primary navbar-button nav-signup" onClick={this.handleClick}>Signup</div>
+            <div className="btn btn-primary navbar-button nav-login" onClick={this.switchSession}>Login</div> :
+            <div className="btn btn-primary navbar-button nav-signup" onClick={this.switchSession}>Signup</div>
           }
+          <div className="btn btn-primary navbar-button nav-signup" onClick={this.toggleTheme}>Theme</div>
         </div>
       );
     }
