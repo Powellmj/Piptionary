@@ -16,7 +16,6 @@ router.post("/",
     const newNote = new Note({
       body: req.body.body,
       content: req.body.content,
-      desc: req.body.desc,
       tags: req.body.tags,
       author: req.body.author_id
     });

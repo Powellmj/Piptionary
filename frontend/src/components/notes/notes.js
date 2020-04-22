@@ -11,12 +11,13 @@ class Notes extends React.Component {
     this.state = {
       editorState: '',
       contentState: '',
-      tags: [],
+      tags: '',
       formatting: true
     };
     this.onEditorStateChange = this.onEditorStateChange.bind(this)
     this.onContentStateChange = this.onContentStateChange.bind(this)
     this.compileContentState = this.compileContentState.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -53,9 +54,11 @@ class Notes extends React.Component {
 
   compileContentState() {
     let content = '';
-    this.state.contentState.blocks.forEach(block => {
-      content += block.text
-    })
+      if (this.state.contentState.blocks) {
+            this.state.contentState.blocks.forEach(block => {
+        content += block.text
+      })
+    }
     return content
   }
 
@@ -66,7 +69,6 @@ class Notes extends React.Component {
   }
 
   render() {
-    if (this.props.isAuthenticated) {
       return (
         <div className="notes-container">
           <div className="notes-create-note-card card text-center">
@@ -96,7 +98,7 @@ class Notes extends React.Component {
                   aria-label="Tag Input"
                   onChange={this.update('tags')}
                   value={this.state.tags} />
-                  <button type="button" class="notes-submit btn btn-primary">Submit</button>
+                <button type="button" onClick={this.handleSubmit} className="notes-submit btn btn-primary">Submit</button>
               </div>
             </div>
           </div>
@@ -104,9 +106,6 @@ class Notes extends React.Component {
 
         </div>
       );
-    } else {
-      return null
-    }
   }
 }
 

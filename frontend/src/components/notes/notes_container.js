@@ -1,19 +1,17 @@
 import { connect } from 'react-redux';
-import { signup, login } from '../../actions/session_actions';
+import { createNote } from '../../actions/note_actions';
 import Notes from './notes';
 
 const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.session.isAuthenticated,
-    formType: state.session.formType,
-    errors: state.errors.session
+    notes: state.entities.notes,
+    currentUser: state.session.user
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signup: user => dispatch(signup(user)),
-    login: user => dispatch(login(user))
+    processForm: note => dispatch(createNote(note)),
   }
 }
 
