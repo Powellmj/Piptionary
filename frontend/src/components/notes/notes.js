@@ -74,10 +74,15 @@ class Notes extends React.Component {
   }
 
   renderNotes() {
-    return Object.values(this.props.notes).map(note => (
-      <div class="card">
-        <div class="card-body">
+    return Object.values(this.props.notes).reverse().map(note => (
+      <div key={note._id} className="note-card card">
+        <div className="note-body card-body">
           { this.attachNote(note) }
+        </div>
+        <div className="input-group-prepend">
+          <div className="notes-tags">
+            Tags: {note.tags.join(' ')}
+          </div>
         </div>
       </div>
     ))
@@ -123,7 +128,9 @@ class Notes extends React.Component {
                 </div>
               </div>
             </div>
-            { this.renderNotes() }
+            <div className="notes-index">
+              {this.renderNotes()}
+            </div>
           </div>
         </div>
       );

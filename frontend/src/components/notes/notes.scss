@@ -132,3 +132,32 @@
     }
   }
 }
+
+.notes-index {
+  width: 90%;
+  margin: 20px;
+}
+
+.note-body {
+  @include themify($themes) {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: themed('tertiaryBackgroundColor');
+  }
+}
+
+.note-card {
+  margin-bottom: 20px;
+}
+
+.notes-tags {
+  @include themify($themes) {
+    display: inline-block;
+    width: calc(100% - 1px);
+    background-color: themed('secondaryBackgroundColor');
+    color: themed('primaryTextColor');
+    padding: 10px 20px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+}

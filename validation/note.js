@@ -5,7 +5,6 @@ module.exports = function validateNoteInput(data) {
   let errors = {};
 
   data.body = validText(data.body) ? data.body : '';
-
   if (Validator.isEmpty(data.body)) {
     errors.body = 'Body field is required';
   }
