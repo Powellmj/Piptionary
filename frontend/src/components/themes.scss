@@ -1,23 +1,29 @@
 $themes: (
   light: (
     primaryBackgroundColor: #fff,
-    secondaryBackgroundColor: #fff,
-    textColor: #408bbd,
-    buttonTextColor: #408bbd,
-    buttonTextTransform: none,
-    buttonTextHoverColor: #61b0e7,
-    buttonColor: #fff,
-    buttonBorder: 2px solid #fff,
+    secondaryBackgroundColor: #d1d1d1a9,
+
+    boxShadow: 1px 1px 3px #c2c2c2,
+
+    primaryTextColor: #000000,
+    secondaryTextColor: #4389c5,
+
+    primaryButtonColor: #4389c5,
+    primaryButtonText: #fff,
+    primaryButtonHover: #5f9fd4,
   ),
   dark: (
-    primaryBackgroundColor: #222,
-    secondaryBackgroundColor: #222,
-    textColor: #ddd,
-    buttonTextColor: #aaa,
-    buttonTextTransform: uppercase,
-    buttonTextHoverColor: #ddd,
-    buttonColor: #333,
-    buttonBorder: 1px solid #aaa,
+    primaryBackgroundColor: #272727,
+    secondaryBackgroundColor: #36363694,
+
+    boxShadow: 1px 1px 3px #4d4d4d,
+
+    primaryTextColor: #ffffff,
+    secondaryTextColor: #000000,
+
+    primaryButtonColor: #000000,
+    primaryButtonText: #4389c5,
+    primaryButtonHover: #202327,
   ),
 );
 

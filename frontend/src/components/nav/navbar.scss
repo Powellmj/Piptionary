@@ -1,12 +1,17 @@
+@import '../themes.scss';
+
 .navbar-container {
-  height: 70px;
-  min-width: 380px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 1px 1px 3px rgb(194, 194, 194);
-  padding: 0 20px;
-  margin-bottom: 1px;
+  @include themify($themes) {
+    background-color: themed('secondaryBackgroundColor');  
+    height: 70px;
+    min-width: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: themed('boxShadow');  
+    padding: 0 20px;
+    margin-bottom: 1px;
+  }
 }
 
 .navbar-piptionary-logo {
@@ -23,10 +28,12 @@
 }
 
 .navbar-piptionary-logo-text {
-  margin-left: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #4389c5;
+  @include themify($themes) {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: themed('secondaryTextColor');  
+  }
 }
 
 .navbar-session-buttons {
@@ -36,24 +43,30 @@
 }
 
 .navbar-button {
-  background-color: #4389c5;
-  border-color: #4389c5;
-  width: 90px;
-  font-weight: bold;
-}
+  @include themify($themes) {
+    background-color: themed('primaryButtonColor');
+    border-color: transparent;
+    color: themed('primaryButtonText');
+    width: 90px;
+    font-weight: bold;
+  }
 
-.navbar-button:hover {
-  background-color: #5f9fd4;
-  border-color: #5f9fd4;
+    &:hover {
+      @include themify($themes) {
+        background-color: themed('primaryButtonHover');
+        border-color: transparent;
+      }
+    }
 }
 
 .nav-login {
-  background-color: white;
-  color: #4389c5;
-  border: 1px solid #4389c5;
-}
-
-.nav-login:hover {
-  background-color: #ebf5fd;
-  color: #4389c5;
+  @include themify($themes) {
+    background-color: white;
+    color: #4389c5;
+    border: 1px solid #4389c5;
+  }
+    &:hover {
+      background-color: #ebf5fd;
+      color: #4389c5;
+  }
 }

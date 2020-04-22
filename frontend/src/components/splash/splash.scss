@@ -1,42 +1,19 @@
 @import '../themes.scss';
 
-
 .splash-container, .splash-left-container {
   @include themify($themes) {
     display: flex;
     min-width: 380px;
     width: 100%;
-    color: themed('textColor');  
+    color: themed('primaryTextColor');  
     background-color: themed('primaryBackgroundColor');  
   }
-
-  .button {
-    @include themify($themes) {
-      cursor: pointer;
-      border-radius: 5px;
-      padding: 15px 32px;
-      display: inline-block;
-      transition: color 0.1s, border-color 0.1s, background-color 0.1s;
-      border: themed('buttonBorder');
-      color: themed('buttonTextColor'); 
-      border-color: themed('buttonTextColor');
-      background-color: themed('buttonColor');
-      text-transform: themed('buttonTextTransform');
-
-      &:hover {
-        color: themed('buttonTextHoverColor'); 
-        border-color: themed('buttonTextHoverColor');
-        background-color: themed('buttonHoverColor');
-      }
-    }
-
-  } 
 }
 
 .splash-left-container {
-  padding: 0;
   @include themify($themes) {
-    color: themed('textColor');  
+    padding: 0;
+    color: themed('primaryTextColor');  
     background-color: themed('backgroundColor');  
   }
 }

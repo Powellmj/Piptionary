@@ -1,11 +1,15 @@
+@import '../themes.scss';
+
 .footer-container {
-  position: relative;
-  background-color: #2f363f;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  width: 100%;
-  color: white;
+  @include themify($themes) {
+    position: relative;
+    background-color: themed('secondaryBackgroundColor');  
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    color: white;
+  }
 }
 
 .footer-creator {
@@ -32,7 +36,9 @@
 }
 
 .footer-link {
-  color: rgb(150, 150, 150);
-  font-size: 15px;
-  margin: 0 5px;
+  @include themify($themes) {
+    color: themed('primaryTextColor');
+    font-size: 15px;
+    margin: 0 5px;
+  }
 }
