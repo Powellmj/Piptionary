@@ -2,7 +2,13 @@
 
 .notes-container {
   width: 100%;
-  height: calc(100vh - 210px);
+  height: calc(100vh - 110px);
+  overflow-y: scroll;
+}
+
+.notes-scrollbox {
+  height: fit-content;
+  margin-bottom: 20px;
 }
 
 .notes-create-note-card {
