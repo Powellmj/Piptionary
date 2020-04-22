@@ -1,3 +1,5 @@
+@import '../themes.scss';
+
 .session-form-box, .session-form {
   display: flex;
   flex-direction: column;
@@ -21,10 +23,13 @@
 }
 
 .session-form-container {
-  width: 100%;
-  max-width: 480px;
-  min-width: 380px;
-  background-color: #f8f8f8be;
+  @include themify($themes) {
+    background-color: themed('secondaryBackgroundColor');  
+    width: 100%;
+    height: calc(100% - 110px);
+    max-width: 480px;
+    min-width: 380px;
+  }
 }
 
 .session-input-field {
@@ -57,16 +62,20 @@
 }
 
 .session-submit {
-  background-color: #4389c5;
-  border-color: #4389c5;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  width: 85%;
-}
-
-.session-submit:hover {
-  border-color: #5f9fd4;
-  background-color: #5f9fd4;
+  @include themify($themes) {
+    background-color: themed('primaryButtonColor');
+    border-color: transparent;
+    color: themed('primaryButtonText');
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 85%;
+    }
+  &:hover {
+    @include themify($themes) {
+      background-color: themed('primaryButtonHover');
+      border-color: transparent;
+    }
+  }
 }
 
 .session-input:focus ~ .session-input-label {

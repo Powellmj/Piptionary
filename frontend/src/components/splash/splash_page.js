@@ -8,11 +8,7 @@ class MainPage extends React.Component {
     return (
       <div className="splash-container">
         <div className="container-fluid splash-left-container">
-          <div>
-            <div>
-              <div className="bg-img splash-image"></div>
-            </div>
-          </div>
+          <div className="bg-img splash-image"></div>
         </div>
         <div className="container-sm splash-right-container">
           <SessionFormContainer />
