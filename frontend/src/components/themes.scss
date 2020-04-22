@@ -1,6 +1,7 @@
 $themes: (
   light: (
-    backgroundColor: #fff,
+    primaryBackgroundColor: #fff,
+    secondaryBackgroundColor: #fff,
     textColor: #408bbd,
     buttonTextColor: #408bbd,
     buttonTextTransform: none,
@@ -9,7 +10,8 @@ $themes: (
     buttonBorder: 2px solid #fff,
   ),
   dark: (
-    backgroundColor: #222,
+    primaryBackgroundColor: #222,
+    secondaryBackgroundColor: #222,
     textColor: #ddd,
     buttonTextColor: #aaa,
     buttonTextTransform: uppercase,
@@ -21,14 +23,12 @@ $themes: (
 
 @mixin themify($themes: $themes) {
   @each $theme, $map in $themes {
-
     .theme-#{$theme} & {
       $theme-map: () !global;
       @each $key, $submap in $map {
         $value: map-get(map-get($themes, $theme), '#{$key}');
         $theme-map: map-merge($theme-map, ($key: $value)) !global;
       }
-
       @content;
       $theme-map: null !global;
     }

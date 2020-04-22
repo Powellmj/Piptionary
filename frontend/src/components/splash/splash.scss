@@ -2,22 +2,21 @@
 
 
 .splash-container, .splash-left-container {
-  display: flex;
-  min-width: 380px;
-  width: 100%;
   @include themify($themes) {
+    display: flex;
+    min-width: 380px;
+    width: 100%;
     color: themed('textColor');  
-    background-color: themed('backgroundColor');  
+    background-color: themed('primaryBackgroundColor');  
   }
 
   .button {
-    cursor: pointer;
-    border-radius: 5px;
-    padding: 15px 32px;
-    display: inline-block;
-    transition: color 0.1s, border-color 0.1s, background-color 0.1s;
-
     @include themify($themes) {
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 15px 32px;
+      display: inline-block;
+      transition: color 0.1s, border-color 0.1s, background-color 0.1s;
       border: themed('buttonBorder');
       color: themed('buttonTextColor'); 
       border-color: themed('buttonTextColor');
@@ -41,13 +40,6 @@
     background-color: themed('backgroundColor');  
   }
 }
-
-
-// .splash-container {
-//   display: flex;
-//   min-width: 380px;
-//   width: 100%;
-// }
 
 .splash-left-container {
   padding: 0;
