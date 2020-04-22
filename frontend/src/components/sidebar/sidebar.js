@@ -12,8 +12,8 @@ class SideBar extends React.Component {
       return (
         <div className="sidebar-container">
           <div className="sidebar-options-list">
-            <Link to={`/main`}>Main Page</Link>
-            <Link to={`/notes`}>Notes</Link>
+            <Link className="sidebar-link" to={`/main`}>Main Page</Link>
+            <Link className="sidebar-link" to={`/notes`}>Notes</Link>
           </div>
         </div>
       );

@@ -33,6 +33,7 @@ class NavBar extends React.Component {
       return (
         <div className="navbar-session-buttons">
           <div className="btn btn-primary navbar-button nav-signup" onClick={this.logoutUser}>Logout</div>
+          <div className="btn btn-primary navbar-button nav-signup" onClick={this.toggleTheme}>Theme</div>
         </div>
       );
     } else {

@@ -1,10 +1,14 @@
+@import '../themes.scss';
+
 .notes-container {
   width: 100%;
   height: calc(100vh - 210px);
 }
 
 .notes-toolbar {
-  background-color: rgb(235, 235, 235);
+  @include themify($themes) {
+    background-color: themed('secondaryBackgroundColor');  
+  }
 }
 
 .notes-editor-wrapper {
@@ -14,7 +18,10 @@
 }
 
 .notes-editor {
-  background-color: rgb(235, 235, 235);
-  border: 1px solid gray;
-  height: 90% !important;
+  @include themify($themes) {
+    background-color: themed('secondaryBackgroundColor');  
+    color: themed('primaryTextareaColor');
+    border: 1px solid gray;
+    height: 90% !important;
+  }
 }
