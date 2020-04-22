@@ -61,12 +61,13 @@
 
 .nav-login {
   @include themify($themes) {
-    background-color: white;
-    color: #4389c5;
-    border: 1px solid #4389c5;
+    background-color: themed('secondaryButtonColor');
+    border-color: themed('secondaryButtonAccent');
+    color: themed('secondaryButtonAccent');
   }
-    &:hover {
-      background-color: #ebf5fd;
-      color: #4389c5;
+  &:hover {
+    @include themify($themes) {
+      background-color: themed('secondaryButtonHover');
+    }
   }
 }

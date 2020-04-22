@@ -11,6 +11,9 @@ $themes: (
     primaryButtonColor: #4389c5,
     primaryButtonText: #fff,
     primaryButtonHover: #5f9fd4,
+    secondaryButtonColor: #d8d8d8,
+    secondaryButtonAccent: #4389c5,
+    secondaryButtonHover: #99bdda,
   ),
   dark: (
     primaryBackgroundColor: #272727,
@@ -24,6 +27,9 @@ $themes: (
     primaryButtonColor: #000000,
     primaryButtonText: #4389c5,
     primaryButtonHover: #202327,
+    secondaryButtonColor: #36363694,
+    secondaryButtonAccent: #4389c5,
+    secondaryButtonHover: #2a353d94,
   ),
 );
 
