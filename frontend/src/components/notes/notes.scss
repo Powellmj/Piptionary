@@ -5,23 +5,124 @@
   height: calc(100vh - 210px);
 }
 
+.notes-create-note-card {
+  margin: 20px;
+  width: 90%;
+}
+
+.notes-create-note-body {
+  @include themify($themes) {
+    background-color: themed('tertiaryBackgroundColor');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.card-header, .card-footer {
+  @include themify($themes) {
+    background-color: themed('secondaryBackgroundColor');
+    color: themed('primaryTextColor');
+  }
+}
+
+.notes-create-note-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .notes-toolbar {
   @include themify($themes) {
-    background-color: themed('secondaryBackgroundColor');  
+    background-color: themed('primaryBackgroundColor');
+    border: themed('primaryBorder');
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-bottom: -1px;
   }
 }
 
 .notes-editor-wrapper {
-  margin: 30px;
+  margin-bottom: 10px;
   height: 100%;
-  width: 90%;
+  width: 95%;
 }
 
 .notes-editor {
   @include themify($themes) {
-    background-color: themed('secondaryBackgroundColor');  
+    background-color: themed('primaryTextarea');  
     color: themed('primaryTextareaColor');
-    border: 1px solid gray;
+    border: themed('primaryBorder');
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     height: 90% !important;
+    min-height: 300px;
+  }
+}
+
+.note-tag-input {
+  @include themify($themes) {
+    background-color: themed('primaryTextarea');  
+    color: themed('primaryTextareaColor');
+    border: themed('primaryBorder');
+  }
+}
+
+.note-tag-text {
+  @include themify($themes) {
+    background-color: themed('primaryBackgroundColor');  
+    color: themed('primaryTextColor');
+    border: themed('primaryBorder');
+  }
+}
+
+.rdw-option-wrapper {
+  @include themify($themes) {
+    background-color: themed('accentBackgroundColor');  
+    border: themed('primaryBorder');
+    padding: 14px 10px;
+  }
+}
+
+.rdw-dropdown-wrapper.rdw-fontsize-dropdown {
+  @include themify($themes) {
+    background-color: themed('accentBackgroundColor');
+    border: themed('primaryBorder');
+    border-radius: 2px;
+  }
+}
+
+.rdw-dropdown-optionwrapper {
+    @include themify($themes) {
+    background-color: themed('accentBackgroundColor');
+    border: themed('primaryBorder');
+  }
+}
+
+.rdw-dropdownoption-default.rdw-fontsize-option.rdw-dropdownoption-active {
+  @include themify($themes) {
+    background-color: themed('accentBackgroundColor');
+    border: themed('primaryBorder');
+  }
+}
+
+.notes-tag-group {
+  width: 95%;
+  margin: 5px 0px !important;
+}
+
+.notes-submit {
+  @include themify($themes) {
+    background-color: themed('primaryButtonColor');
+    color: themed('primaryButtonText');
+    border-color: themed('primaryBorder');
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-left: -1px;
+  }
+  &:hover {
+    @include themify($themes) {
+      background-color: themed('primaryButtonHover');
+    }
   }
 }

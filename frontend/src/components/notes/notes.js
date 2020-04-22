@@ -69,21 +69,39 @@ class Notes extends React.Component {
     if (this.props.isAuthenticated) {
       return (
         <div className="notes-container">
-          <Editor
-            editorState={this.state.editorState}
-            onEditorStateChange={this.onEditorStateChange}
-            onContentStateChange={this.onContentStateChange}
-            toolbarClassName="notes-toolbar"
-            wrapperClassName="notes-editor-wrapper"
-            editorClassName="notes-editor"
-            toolbar={{
-              options: ['inline', 'fontSize', 'list', 'textAlign', 'colorPicker', 'link'],
-            }} />
-          <input type="text"
-            value={this.state.tags}
-            onChange={this.update('tags')}
-            className="note-tag-input"
-            placeholder="Tags" />
+          <div className="notes-create-note-card card text-center">
+            <div className="card-header">
+              Write it down before you forget it!
+            </div>
+            <div className="notes-create-note-body card-body">
+                <Editor
+                  editorState={this.state.editorState}
+                  onEditorStateChange={this.onEditorStateChange}
+                  onContentStateChange={this.onContentStateChange}
+                  toolbarClassName="notes-toolbar"
+                  wrapperClassName="notes-editor-wrapper"
+                  editorClassName="notes-editor"
+                  toolbar={{
+                    options: ['inline', 'fontSize', 'list', 'textAlign', 'colorPicker', 'link'],
+                  }} />
+            </div>
+            <div className="notes-create-note-footer card-footer">
+              <div className="notes-tag-group input-group mb-3">
+                <div className="input-group-prepend">
+                  <span className="note-tag-text input-group-text" id="inputGroup-sizing-default">Tags</span>
+                </div>
+                <input
+                  type="text"
+                  className="note-tag-input form-control"
+                  aria-label="Tag Input"
+                  onChange={this.update('tags')}
+                  value={this.state.tags} />
+                  <button type="button" class="notes-submit btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       );
     } else {

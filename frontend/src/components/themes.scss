@@ -6,6 +6,7 @@ $themes: (
     accentBackgroundColor: #4389c5,
 
     boxShadow: 1px 1px 3px #c2c2c2,
+    primaryBorder: 1px solid #313131,
 
     primaryTextColor: #000000,
     secondaryTextColor: #4389c5,
@@ -18,7 +19,7 @@ $themes: (
     secondaryButtonHover: #99bdda,
 
     primaryTextarea: #ffffffa9,
-    primaryTextareaColor: #818181,
+    primaryTextareaColor: #4e4e4e,
   ),
   dark: (
     primaryBackgroundColor: #0f0f0f,
@@ -27,6 +28,7 @@ $themes: (
     accentBackgroundColor: #4389c5,
 
     boxShadow: 1px 1px 3px #030303,
+    primaryBorder: 1px solid rgb(255, 255, 255),
 
     primaryTextColor: #ffffff,
     secondaryTextColor: #4389c5,
