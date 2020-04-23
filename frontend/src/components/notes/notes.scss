@@ -121,7 +121,7 @@
   @include themify($themes) {
     background-color: themed('primaryButtonColor');
     color: themed('primaryButtonText');
-    border-color: themed('primaryBorder');
+    border-color: themed('primaryBorderColor');
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     margin-left: -1px;

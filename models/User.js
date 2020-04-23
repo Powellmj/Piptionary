@@ -20,6 +20,10 @@ const UserSchema = new Schema({
       ref: "notes"
     }
   ],
+  theme: {
+    type: String,
+    required: false
+  },
   created_at: {
     type: Date,
     default: Date.now

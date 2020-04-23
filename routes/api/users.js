@@ -75,7 +75,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, username: user.username };
+        const payload = { id: user.id, username: user.username, theme: user.theme };
 
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 14400 }, (err, token) => {
           res.json({
@@ -89,6 +89,23 @@ router.post("/login", (req, res) => {
       }
     });
   });
+});
+
+router.patch("/:id/theme", (req, res) => {
+  const filter = { _id: req.body.user.id };
+  User.findOneAndUpdate(filter, { "$set": { theme: `${req.body.theme}` } }, { new: true })
+    .then(user => {
+      res.json(user)
+    })
+    .catch(err => res.status(400).json({ unabletoupdate: `Unable to update ${err}` }))
+});
+
+router.get("/:id/ui", (req, res) => {
+  User.findById(req.params.id)
+    .then(user => {
+      res.json(user.theme)
+    })
+    .catch(err => res.status(400).json({ unabletoupdate: `Unable to get ${err}` }))
 });
 
 module.exports = router;

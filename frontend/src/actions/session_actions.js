@@ -7,6 +7,7 @@ export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 export const RECEIVE_SESSION_CHANGE = "RECEIVE_SESSION_CHANGE";
 export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
+export const TOGGLE_THEME = 'TOGGLE_THEME';
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
@@ -71,3 +72,18 @@ export const logout = () => dispatch => {
   APIUtil.setAuthToken(false)
   dispatch(logoutUser())
 };
+
+export const toggleTheme = theme => ({
+  type: TOGGLE_THEME,
+  theme
+});
+
+export const changeUserTheme = (user, theme) => dispatch => {
+  APIUtil.changeUserTheme(user, theme)
+  user.theme = theme
+  dispatch(toggleTheme(theme))
+}
+
+export const getTheme = (userId) => dispatch => {
+  APIUtil.getTheme(userId).then(theme => dispatch(toggleTheme(theme.data)))
+}

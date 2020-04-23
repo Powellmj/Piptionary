@@ -15,3 +15,11 @@ export const signup = (userData) => {
 export const login = (userData) => {
   return axios.post('/api/users/login', userData);
 };
+
+export const changeUserTheme = (user, theme) => {
+  return axios.patch(`/api/users/${user.id}/theme`, {user, theme});
+};
+
+export const getTheme = (userId) => {
+  return axios.get(`/api/users/${userId}/ui`)
+}

@@ -9,8 +9,13 @@ import Footer from './footer/footer';
 import SplashPage from './splash/splash_page';
 import './app.scss'
 
-const App = (props) => (
-  <div className={ props.store.getState().ui.theme === 'darkmode' ? "theme-dark main-div" : "theme-light main-div" }>
+const App = (props) => {
+  if (props.isAuthenticated) {
+    props.getTheme(props.currentUser.id);
+  }
+  console.log(props.theme)
+  return (
+  <div className={props.theme === 'dark' ? "theme-dark main-div" : "theme-light main-div" }>
     <NavBarContainer />
     <div className="main-content">
       <SideBarContainer />
@@ -22,6 +27,6 @@ const App = (props) => (
     </div>
     <Footer />
   </div>
-);
+)};
 
 export default App;

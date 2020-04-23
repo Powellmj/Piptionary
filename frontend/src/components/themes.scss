@@ -4,9 +4,12 @@ $themes: (
     secondaryBackgroundColor: #d1d1d1,
     tertiaryBackgroundColor: #d1d1d1a9,
     accentBackgroundColor: #4389c5,
+    
+    imageColor: invert(0),
 
     boxShadow: 1px 1px 3px #c2c2c2,
     primaryBorder: 1px solid #313131,
+    primaryBorderColor: #313131,
 
     primaryTextColor: #000000,
     secondaryTextColor: #4389c5,
@@ -25,19 +28,22 @@ $themes: (
     primaryBackgroundColor: #0f0f0f,
     secondaryBackgroundColor: #272727,
     tertiaryBackgroundColor: #141414a6,
-    accentBackgroundColor: #4389c5,
+    accentBackgroundColor: #bc763a,
+
+    imageColor: invert(1),
 
     boxShadow: 1px 1px 3px #030303,
-    primaryBorder: 1px solid rgb(255, 255, 255),
+    primaryBorder: 1px solid #ffffff,
+    primaryBorderColor: #ffffff,
 
     primaryTextColor: #ffffff,
-    secondaryTextColor: #4389c5,
+    secondaryTextColor: #bc763a,
 
     primaryButtonColor: #000000,
-    primaryButtonText: #4389c5,
+    primaryButtonText: #bc763a,
     primaryButtonHover: #383b3f,
     secondaryButtonColor: #36363694,
-    secondaryButtonAccent: #4389c5,
+    secondaryButtonAccent: #bc763a,
     secondaryButtonHover: #2a353d94,
 
     primaryTextarea: #d1d1d1a9,

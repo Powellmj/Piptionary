@@ -2,7 +2,7 @@ import {
   RECEIVE_CURRENT_USER,
   RECEIVE_USER_LOGOUT,
   RECEIVE_USER_SIGN_IN,
-  RECEIVE_SESSION_CHANGE
+  RECEIVE_SESSION_CHANGE,
 } from '../actions/session_actions';
 
 const initialState = {
