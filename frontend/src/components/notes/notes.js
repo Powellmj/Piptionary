@@ -57,6 +57,10 @@ class Notes extends React.Component {
     })
   }
 
+  deleteNote(noteId) {
+    this.props.deleteNote(noteId)
+  }
+
   compileContentState() {
     let content = '';
       if (this.state.contentState.blocks) {
@@ -76,6 +80,9 @@ class Notes extends React.Component {
   renderNotes() {
     return Object.values(this.props.notes).reverse().map(note => (
       <div key={note._id} className="note-card card">
+        <div className="card-header">
+          <button onClick={ () => { this.deleteNote(note._id) }} type="button" className="btn btn-danger">Danger</button>
+        </div>
         <div className="note-body card-body">
           { this.attachNote(note) }
         </div>

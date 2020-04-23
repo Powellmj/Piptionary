@@ -2,6 +2,7 @@ import * as APIUtil from '../util/note_api_util';
 
 export const RECEIVE_NOTE = "RECEIVE_NOTE";
 export const RECEIVE_ALL_NOTES = "RECEIVE_ALL_NOTES";
+export const REMOVE_NOTE = "REMOVE_NOTE";
 
 export const receiveNote = note => ({
   type: RECEIVE_NOTE,
@@ -11,6 +12,11 @@ export const receiveNote = note => ({
 export const receiveAllNotes = notes => ({
   type: RECEIVE_ALL_NOTES,
   notes
+});
+
+export const removeNote = noteId => ({
+  type: REMOVE_NOTE,
+  noteId
 });
 
 export const requestAllNotes = () => dispatch => APIUtil.fetchAllNotes()
@@ -30,4 +36,9 @@ export const createNote = note => dispatch => (
   //   dispatch(receiveErrors(err.response.data))
   // )
   )
+)
+
+export const deleteNote = noteId => dispatch => (
+  APIUtil.deleteNote(noteId).then(noteId => (dispatch(removeNote(noteId))
+  ))
 )

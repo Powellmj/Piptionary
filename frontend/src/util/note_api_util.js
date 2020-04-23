@@ -7,3 +7,7 @@ export const createNote = (note) => {
 export const fetchAllNotes = () => {
   return axios.get('/api/notes/');
 };
+
+export const deleteNote = noteId => {
+  return axios.delete(`/api/notes/${noteId}`);
+};
