@@ -79,7 +79,9 @@
 }
 
 .session-input:focus ~ .session-input-label {
-  color: #4389c5;
+  @include themify($themes) {
+    color: themed('secondaryTextColor');
+  }
 }
 
 .session-input-label {

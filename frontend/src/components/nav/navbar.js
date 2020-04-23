@@ -43,7 +43,6 @@ class NavBar extends React.Component {
             <div className="btn btn-primary navbar-button nav-login" onClick={this.switchSession}>Login</div> :
             <div className="btn btn-primary navbar-button nav-signup" onClick={this.switchSession}>Signup</div>
           }
-          <div className="btn btn-primary navbar-button nav-signup" onClick={this.toggleTheme}>Theme</div>
         </div>
       );
     }
