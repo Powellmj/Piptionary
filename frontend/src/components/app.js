@@ -10,12 +10,23 @@ import SplashPage from './splash/splash_page';
 import './app.scss'
 
 const App = (props) => {
+  let theme
   if (props.isAuthenticated) {
-    props.getTheme(props.currentUser.id);
+    if (props.theme !== 'dark' && props.theme !== 'light') {
+      props.getTheme(props.currentUser.id);
+    }
+    if (props.theme === 'dark' || props.theme === 'light') {
+      theme = props.theme
+    } else {
+      return ( 
+      <div className="spinner-border text-info" role="status">
+        <span className="sr-only">Loading...</span>
+      </div> 
+      )
+    }
   }
-  console.log(props.theme)
   return (
-  <div className={props.theme === 'dark' ? "theme-dark main-div" : "theme-light main-div" }>
+  <div className={theme === 'dark' ? "theme-dark main-div" : "theme-light main-div" }>
     <NavBarContainer />
     <div className="main-content">
       <SideBarContainer />

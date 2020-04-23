@@ -5,7 +5,7 @@ import App from './app';
 const mapStateToProps = state => ({
   currentUser: state.session.user,
   theme: state.ui.theme,
-  userTheme: state.session.user.theme,
+  userTheme: state.session.user ? state.session.user.theme : null,
   isAuthenticated: state.session.isAuthenticated,
 });
 
