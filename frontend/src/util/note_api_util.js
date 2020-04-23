@@ -9,5 +9,5 @@ export const fetchAllNotes = () => {
 };
 
 export const deleteNote = noteId => {
-  return axios.delete(`/api/notes/${noteId}`);
+  return axios.delete(`/api/notes/${noteId}`, noteId);
 };

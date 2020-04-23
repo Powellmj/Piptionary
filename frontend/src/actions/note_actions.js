@@ -39,6 +39,6 @@ export const createNote = note => dispatch => (
 )
 
 export const deleteNote = noteId => dispatch => (
-  APIUtil.deleteNote(noteId).then(noteId => (dispatch(removeNote(noteId))
-  ))
+  APIUtil.deleteNote(noteId),
+  dispatch(removeNote(noteId))
 )

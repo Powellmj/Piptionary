@@ -10,7 +10,6 @@ export default function (state = initialState, action) {
     case RECEIVE_NOTE:
       return Object.assign({}, state, { [action.note._id]: action.note })
     case REMOVE_NOTE:
-      console.log(action.noteId)
       let newState = Object.assign({}, state)
       delete newState[action.noteId]
       return newState

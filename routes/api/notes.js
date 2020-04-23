@@ -3,7 +3,6 @@ const router = express.Router();
 const passport = require('passport');
 const validateNoteInput = require('../../validation/note');
 const Note = require('../../models/Note');
-const mongodb = require('mongodb');
 
 router.post("/",
   passport.authenticate('jwt', { session: false }),
@@ -31,8 +30,11 @@ router.get("/", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  Note.deleteOne({ "_id": new mongodb.ObjectId(`${req.params.id}`) })
+  const filter = { "_id": `${req.params.id}` };
+  Note.deleteOne(filter)
+  .then(result => console.log(`Deleted ${result.deletedCount} item.`))
+  .catch(err => console.error(`Delete failed with error: ${err}`))
   return req.params.id
 });
 
-module.exports = router;
+module.exports = router
