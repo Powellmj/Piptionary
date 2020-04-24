@@ -1,17 +1,15 @@
 @import '../themes.scss';
 
-.navbar-container {
+.navbar-light {
   @include themify($themes) {
     background-color: themed('secondaryBackgroundColor');  
-    height: 70px;
-    min-width: 380px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: themed('boxShadow');  
-    border: none;
-    padding: 0 20px;
-    margin-bottom: 1px;
+    box-shadow: themed('boxShadow');
+  }
+}
+
+.navbar-toggler {
+  @include themify($themes) {
+    background-color: themed('accentBackgroundColor');  
   }
 }
 
@@ -73,5 +71,13 @@
     @include themify($themes) {
       background-color: themed('secondaryButtonHover');
     }
+  }
+}
+
+.nav-search {
+  @include themify($themes) {
+    background-color: themed('primaryTextarea');
+    color: themed('primaryTextareaColor');
+    height: 25px;
   }
 }
