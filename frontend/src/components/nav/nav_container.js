@@ -5,7 +5,6 @@ import NavBar from './navbar';
 const mapStateToProps = state => ({
   loggedIn: state.session.isAuthenticated,
   currentUser: state.session.user,
-  theme: state.ui.theme,
   formType: state.session.formType
 });
 

@@ -23,8 +23,9 @@ class NavBar extends React.Component {
 
   toggleTheme(e) {
     e.preventDefault();
-    let theme = this.props.theme === 'dark' ? 'light' : 'dark'
+    let theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark'
     this.props.toggleTheme(this.props.currentUser, `${theme}`)
+    localStorage.setItem('theme', `${theme}`)
     document.querySelector('.main-div').className = `theme-${theme} main-div`
   }
 
