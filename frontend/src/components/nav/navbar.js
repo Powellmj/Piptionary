@@ -32,19 +32,28 @@ class NavBar extends React.Component {
   getLinks() {
     if (this.props.loggedIn) {
       return (
-        <div className="navbar-session-buttons">
-          <div className="btn btn-primary navbar-button nav-signup" onClick={this.logoutUser}>Logout</div>
-          <div className="btn btn-primary navbar-button nav-signup" onClick={this.toggleTheme}>Theme</div>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto"></ul>
+          <form className="form-inline my-2 my-lg-0">
+            <input className="nav-search form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+          </form>
+          <div className="navbar-session-buttons">
+            <div className="btn btn-primary navbar-button nav-signup" onClick={this.logoutUser}>Logout</div>
+            <div className="btn btn-primary navbar-button nav-signup" onClick={this.toggleTheme}>Theme</div>
+          </div>
         </div>
       );
     } else {
       return (
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto"></ul>
         <div className="navbar-session-buttons">
           {this.props.formType === 'signup' ?
             <div className="btn btn-primary navbar-button nav-login" onClick={this.switchSession}>Login</div> :
             <div className="btn btn-primary navbar-button nav-signup" onClick={this.switchSession}>Signup</div>
           }
         </div>
+      </div>
       );
     }
   }
@@ -59,15 +68,7 @@ class NavBar extends React.Component {
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-          </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input className="nav-search form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-          </form>
-          { this.getLinks() }
-        </div>
+        { this.getLinks() }
       </nav>
     );
   }

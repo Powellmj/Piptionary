@@ -22,3 +22,9 @@
   font-size: 20px;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 480px) {
+  .sidebar-container {
+    width: 0px !important;
+  }
+}
