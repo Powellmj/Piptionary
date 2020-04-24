@@ -5,7 +5,7 @@ import NavBarContainer from './nav/nav_container';
 import SideBarContainer from './sidebar/sidebar_container';
 import MainPage from './main/main_page';
 import Notes from './notes/notes_container';
-import Footer from './footer/footer';
+// import Footer from './footer/footer';
 import SplashPage from './splash/splash_page';
 import './app.scss'
 
@@ -25,7 +25,7 @@ const App = (props) => {
         <AuthRoute exact path="/splash" component={SplashPage} />
       </Switch>
     </div>
-    <Footer />
+    {/* <Footer /> */}
   </div>
 )};
 

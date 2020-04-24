@@ -2,7 +2,7 @@
 
 .notes-container {
   width: 100%;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 50px);
   overflow-y: scroll;
 }
 
@@ -13,7 +13,7 @@
 
 .notes-create-note-card {
   margin: 20px;
-  width: 90%;
+  width: calc(100% - 40px);
 }
 
 .notes-create-note-body {
@@ -134,7 +134,7 @@
 }
 
 .notes-index {
-  width: 90%;
+  width: calc(100% - 40px);
   margin: 20px;
 }
 
