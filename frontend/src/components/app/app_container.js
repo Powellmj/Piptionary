@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getTheme } from '../actions/session_actions';
+import { getTheme } from '../../actions/session_actions';
 import App from './app';
 
 const mapStateToProps = state => ({

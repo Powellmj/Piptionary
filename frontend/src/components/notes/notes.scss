@@ -159,3 +159,21 @@
     border-bottom-right-radius: 3px;
   }
 }
+
+.note-body ol li {
+  margin-left: 10px;
+  list-style: decimal;
+}
+
+.note-body ul li {
+  margin-left: 10px;
+  list-style: disc;
+}
+
+// .note-body ul li::before, .note-body ol li::before {
+//   // margin-right: calc(inherit - 10px);
+// }
+
+.note-body sub, .note-body sup {
+  font-size: 70%;
+}

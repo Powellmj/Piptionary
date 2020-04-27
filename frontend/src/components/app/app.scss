@@ -1,4 +1,4 @@
-@import './themes.scss';
+@import '../themes.scss';
 
 .main-content {
     @include themify($themes) {
