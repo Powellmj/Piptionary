@@ -135,11 +135,23 @@
 
 .notes-index {
   width: calc(100% - 40px);
+  justify-content: center;
   margin: 20px;
 }
 
 .note-body {
   @include themify($themes) {
+    margin: 0 auto;
+    border: 1px solid themed('primaryBorderColor');
+    border-radius: 5px;
+    width: 90%;
+    background-color: themed('primaryTextarea');
+  }
+}
+
+.note-background {
+  @include themify($themes) {
+    padding: 20px 0;
     background-color: themed('tertiaryBackgroundColor');
   }
 }
@@ -170,9 +182,9 @@
   list-style: disc;
 }
 
-// .note-body ul li::before, .note-body ol li::before {
-//   // margin-right: calc(inherit - 10px);
-// }
+.note-body ul, .note-body ol {
+  margin-left: 10px;
+}
 
 .note-body sub, .note-body sup {
   font-size: 70%;

@@ -83,8 +83,10 @@ class Notes extends React.Component {
         <div className="card-header">
           <button onClick={ () => { this.deleteNote(note._id) }} type="button" className="btn btn-danger">Danger</button>
         </div>
-        <div className="note-body card-body">
+        <div className="note-background">
+          <div className="note-body card-body">
           { this.attachNote(note) }
+          </div>
         </div>
         <div className="input-group-prepend">
           <div className="notes-tags">
