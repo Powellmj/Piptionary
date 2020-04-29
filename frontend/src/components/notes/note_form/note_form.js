@@ -18,7 +18,6 @@ class Notes extends React.Component {
     this.onContentStateChange = this.onContentStateChange.bind(this)
     this.compileContentState = this.compileContentState.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.renderNotes = this.renderNotes.bind(this)
   }
 
   componentDidMount() {
@@ -77,31 +76,6 @@ class Notes extends React.Component {
     });
   }
 
-  renderNotes() {
-    return Object.values(this.props.notes).reverse().map(note => (
-      <div key={note._id} className="note-card card">
-        <div className="card-header">
-          <button onClick={() => { this.deleteNote(note._id) }} type="button" className="btn btn-danger">Danger</button>
-        </div>
-        <div className="note-background">
-          <div className="note-body card-body">
-            {this.attachNote(note)}
-          </div>
-        </div>
-        <div className="input-group-prepend">
-          <div className="notes-tags">
-            Tags: {note.tags.join(' ')}
-          </div>
-        </div>
-      </div>
-    ))
-  }
-
-  attachNote(note) {
-    let createMarkup = () => { return { __html: note.body }; };
-    return <div dangerouslySetInnerHTML={createMarkup()}></div>
-  }
-
   render() {
     return (
       <div className="notes-container">
@@ -136,9 +110,6 @@ class Notes extends React.Component {
                 <button type="button" onClick={this.handleSubmit} className="notes-submit btn btn-primary">Submit</button>
               </div>
             </div>
-          </div>
-          <div className="notes-index">
-            {this.renderNotes()}
           </div>
         </div>
       </div>
