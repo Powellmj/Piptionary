@@ -34,9 +34,9 @@ class NavBar extends React.Component {
       return (
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto"></ul>
-          <form className="form-inline my-2 my-lg-0">
+          {/* <form className="form-inline my-2 my-lg-0">
             <input className="nav-search form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-          </form>
+          </form> */}
           <div className="navbar-session-buttons">
             <div className="btn btn-primary navbar-button nav-signup" onClick={this.logoutUser}>Logout</div>
             <div className="btn btn-primary navbar-button nav-signup" onClick={this.toggleTheme}>Theme</div>

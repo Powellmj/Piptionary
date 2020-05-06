@@ -1,61 +1,18 @@
 import React from 'react';
 import './note_index.scss'
-import { EditorState, ContentState, convertToRaw } from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 class NoteIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editorState: '',
-      contentState: '',
-      tags: '',
-      formatting: true
+      search: '',
+      notes: [],
     };
-    this.onEditorStateChange = this.onEditorStateChange.bind(this)
-    this.onContentStateChange = this.onContentStateChange.bind(this)
-    this.compileContentState = this.compileContentState.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
     this.renderNotes = this.renderNotes.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.filterGroups = this.filterGroups.bind(this)
   }
 
-  componentDidMount() {
-    this.setState({ editorState: EditorState.createEmpty() })
-    this.props.requestAllNotes(this.props.currentUser.id)
-  }
-
-  onEditorStateChange(editorState) {
-    this.setState({
-      editorState,
-    });
-  };
-
-  onContentStateChange(contentState) {
-    this.setState({
-      contentState,
-    });
-  };
-
-  handleSubmit() {
-    const contentState = this.state.editorState.getCurrentContent();
-    let content = JSON.stringify(convertToRaw(contentState))
-
-    const note = {
-      body: draftToHtml(JSON.parse(content)),
-      content: this.compileContentState(),
-      tags: this.state.tags.split(' '),
-      author_id: this.props.currentUser.id
-    };
-
-    this.props.processForm(note)
-    const editorState = EditorState.push(this.state.editorState, ContentState.createFromText(''));
-    this.setState({
-      editorState,
-      tags: ''
-    })
-  }
 
   handleClick(note = null) {
     if (!note._id) {
@@ -65,18 +22,10 @@ class NoteIndex extends React.Component {
     }
   }
 
-  deleteNote(noteId) {
-    this.props.deleteNote(noteId)
-  }
-
-  compileContentState() {
-    let content = '';
-    if (this.state.contentState.blocks) {
-      this.state.contentState.blocks.forEach(block => {
-        content += block.text
-      })
-    }
-    return content
+  componentDidMount() {
+    this.props.requestAllNotes(this.props.currentUser.id).then(() => {
+      this.filterGroups()
+    })
   }
 
   update(field) {
@@ -85,8 +34,17 @@ class NoteIndex extends React.Component {
     });
   }
 
+  filterGroups() {
+    let filteredNotes = Object.values(this.props.notes).filter(note => {
+      return note.content.toLowerCase().includes(this.state.search.toLowerCase()) || 
+      note.tags.join('').toLowerCase().includes(this.state.search.toLowerCase()) ||
+      note.title.toLowerCase().includes(this.state.search.toLowerCase())
+    })
+    this.state.notes = filteredNotes
+  }
+
   renderNotes() {
-    return Object.values(this.props.notes).reverse().map(note => (
+    return Object.values(this.state.notes).reverse().map(note => (
       <div key={note._id} onClick={() => this.handleClick(note)} className="note-card card">
         <div className="note-background">
           <div className="note-body card-body">
@@ -96,10 +54,10 @@ class NoteIndex extends React.Component {
         <div className="input-group-prepend">
           <div className="notes-tags">
             <div>
-              Title: {note.title}
+              {note.title}
             </div>
             <div className="note-tags-text">
-              {note.tags.join(' ')}
+              {note.tags.join(', ')}
             </div>
           </div>
         </div>
@@ -113,18 +71,29 @@ class NoteIndex extends React.Component {
   }
 
   render() {
+    this.filterGroups()
     return (
       <div className="notes-index">
       <div className="notes-container">
         <div className="notes-scrollbox">
-          <div onClick={this.handleClick} className="notes-create-note-card-index card text-center">
+            <input
+              className="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              onChange={this.update('search')}
+              value={this.state.search} />
+            <div onClick={this.handleClick} className="note-card card">
             <div className="note-body card-body">
               Hurry! Write it down before you forget it!
             </div>
-            <div className="notes-create-note-footer card-footer">
-              <div className="notes-tag-group input-group mb-3">
-                <div className="input-group-prepend">
+            <div className="input-group-prepend">
+              <div className="notes-tags">
+                <div>
                   Create a note
+                </div>
+                <div className="note-tags-text">
+                  Ya know you wanna!
                 </div>
               </div>
             </div>

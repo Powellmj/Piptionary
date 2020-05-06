@@ -63,6 +63,7 @@
     border-bottom-right-radius: 8px;
     height: 90% !important;
     min-height: 300px;
+    padding: 0 20px;
   }
 }
 
@@ -153,5 +154,14 @@
     padding: 10px 20px;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+    min-height: 55px;
   }
+}
+
+.rdw-colorpicker-option {
+  padding: initial !important;
+}
+
+.rdw-colorpicker-modal {
+  width: 300px;
 }
