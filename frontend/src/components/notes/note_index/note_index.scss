@@ -8,15 +8,14 @@
 
 .notes-scrollbox {
   height: fit-content;
-  margin-bottom: 20px;
+  margin: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .notes-index {
-  width: calc(100% - 40px);
   justify-content: center;
-  margin: 20px;
 }
 
 .note-body {
@@ -101,5 +100,11 @@
 .notes-search::placeholder {
   @include themify($themes) {
     color: themed('primaryTextareaColor');
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .notes-scrollbox {
+    justify-content: center;
   }
 }
