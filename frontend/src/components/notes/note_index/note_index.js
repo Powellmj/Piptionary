@@ -83,7 +83,7 @@ class NoteIndex extends React.Component {
               aria-label="Search"
               onChange={this.update('search')}
               value={this.state.search} />
-            <div onClick={this.handleClick} className="note-card card">
+            { !this.state.search ? <div onClick={this.handleClick} className="note-card card">
             <div className="note-body card-body">
               Hurry! Write it down before you forget it!
             </div>
@@ -97,7 +97,7 @@ class NoteIndex extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div> : null}
             {this.renderNotes()}
           </div>
         </div>
