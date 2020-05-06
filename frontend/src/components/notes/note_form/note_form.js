@@ -1,5 +1,5 @@
 import React from 'react';
-import './notes.scss'
+import './note_form.scss'
 import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import { Editor } from 'react-draft-wysiwyg';
@@ -9,6 +9,7 @@ class Notes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: '',
       editorState: '',
       contentState: '',
       tags: '',
@@ -40,8 +41,14 @@ class Notes extends React.Component {
   handleSubmit() {
     const contentState = this.state.editorState.getCurrentContent();
     let content = JSON.stringify(convertToRaw(contentState))
+    let title = this.state.title
+
+    if (!title) {
+      title = 'Untitled Note'
+    }
 
     const note = {
+      title,
       body: draftToHtml(JSON.parse(content)),
       content: this.compileContentState(),
       tags: this.state.tags.split(' '),
@@ -52,8 +59,10 @@ class Notes extends React.Component {
     const editorState = EditorState.push(this.state.editorState, ContentState.createFromText(''));
     this.setState({
       editorState,
-      tags: ''
+      tags: '',
+      title: ''
     })
+    this.props.history.push('/notes/index')
   }
 
   deleteNote(noteId) {
@@ -82,7 +91,13 @@ class Notes extends React.Component {
         <div className="notes-scrollbox">
           <div className="notes-create-note-card card text-center">
             <div className="card-header">
-              Hurry! Write it down before you forget it!
+              <input
+                type="text"
+                className="note-title-input form-control"
+                aria-label="Tag Input"
+                onChange={this.update('title')}
+                placeholder="Give me a name!"
+                value={this.state.title} />
               </div>
             <div className="notes-create-note-body card-body">
               <Editor

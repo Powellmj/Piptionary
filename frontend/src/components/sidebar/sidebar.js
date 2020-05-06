@@ -25,7 +25,7 @@ class SideBar extends React.Component {
           <div className="sidebar-container">
             <div className="sidebar-options-list">
               <Link className="sidebar-link" to={`/main`}>Main Page</Link>
-              <Link className="sidebar-link" to={`/notes`}>Notes</Link>
+              <Link className="sidebar-link" to={`/notes/index`}>Notes</Link>
             </div>
           </div>
             <div onClick={this.handleClick} className="sidebar-toggle">|||</div>

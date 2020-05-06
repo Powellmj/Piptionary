@@ -9,11 +9,13 @@
 .notes-scrollbox {
   height: fit-content;
   margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.notes-create-note-card {
-  margin: 20px;
-  width: calc(100% - 40px);
+.notes-create-note-card-index {
+  margin: 20px 10px;
+  max-width: 200px;
 }
 
 .notes-create-note-body {
@@ -142,22 +144,18 @@
 .note-body {
   @include themify($themes) {
     margin: 0 auto;
-    border: 1px solid themed('primaryBorderColor');
-    border-radius: 5px;
-    width: 90%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100%;
+    height: 200px;
     background-color: themed('primaryTextarea');
-  }
-}
-
-.note-background {
-  @include themify($themes) {
-    padding: 20px 0;
-    background-color: themed('tertiaryBackgroundColor');
+    overflow: hidden;
   }
 }
 
 .note-card {
-  margin-bottom: 20px;
+  width: 200px;
+  margin: 20px 10px;
 }
 
 .notes-tags {

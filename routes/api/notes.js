@@ -13,6 +13,7 @@ router.post("/",
     }
 
     const newNote = new Note({
+      title: req.body.title,
       body: req.body.body,
       content: req.body.content,
       tags: req.body.tags,

@@ -1,4 +1,4 @@
-@import '../themes.scss';
+@import '../../themes.scss';
 
 .notes-container {
   width: 100%;
@@ -71,6 +71,17 @@
     background-color: themed('primaryTextarea');  
     color: themed('primaryTextareaColor');
     border: themed('primaryBorder');
+  }
+}
+
+.note-title-input {
+  @include themify($themes) {
+    background-color: themed('primaryTextarea');  
+    color: themed('primaryTextareaColor');
+    border: themed('primaryBorder');
+    text-align: center;
+    margin: 0 20px;
+    width: calc(100% - 40px);
   }
 }
 

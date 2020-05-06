@@ -2,7 +2,6 @@ import React from 'react';
 import './note_index.scss'
 import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
-import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 class NoteIndex extends React.Component {
@@ -19,6 +18,7 @@ class NoteIndex extends React.Component {
     this.compileContentState = this.compileContentState.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.renderNotes = this.renderNotes.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -57,6 +57,14 @@ class NoteIndex extends React.Component {
     })
   }
 
+  handleClick(note = null) {
+    if (!note) {
+      this.props.history.push('/notes/create')
+    } else {
+      this.props.history.push(`/notes/${note._id}`)
+    }
+  }
+
   deleteNote(noteId) {
     this.props.deleteNote(noteId)
   }
@@ -79,10 +87,7 @@ class NoteIndex extends React.Component {
 
   renderNotes() {
     return Object.values(this.props.notes).reverse().map(note => (
-      <div key={note._id} className="note-card card">
-        <div className="card-header">
-          <button onClick={() => { this.deleteNote(note._id) }} type="button" className="btn btn-danger">Danger</button>
-        </div>
+      <div key={note._id} onClick={() => this.handleClick(note)} className="note-card card">
         <div className="note-background">
           <div className="note-body card-body">
             {this.attachNote(note)}
@@ -90,7 +95,12 @@ class NoteIndex extends React.Component {
         </div>
         <div className="input-group-prepend">
           <div className="notes-tags">
-            Tags: {note.tags.join(' ')}
+            <div>
+              Title: {note.title}
+            </div>
+            <div>
+              Tags: {note.tags.join(' ')}
+            </div>
           </div>
         </div>
       </div>
@@ -107,21 +117,18 @@ class NoteIndex extends React.Component {
       <div className="notes-index">
       <div className="notes-container">
         <div className="notes-scrollbox">
-          <div className="notes-create-note-card card text-center">
-            <div className="card-header">
+          <div onClick={this.handleClick} className="notes-create-note-card-index card text-center">
+            <div className="note-body card-body">
               Hurry! Write it down before you forget it!
-              </div>
-            <div className="notes-create-note-body card-body">
             </div>
             <div className="notes-create-note-footer card-footer">
               <div className="notes-tag-group input-group mb-3">
                 <div className="input-group-prepend">
-                  <span className="note-tag-text input-group-text" id="inputGroup-sizing-default">Tags</span>
+                  Create a note
                 </div>
               </div>
             </div>
           </div>
-          
             {this.renderNotes()}
           </div>
         </div>
