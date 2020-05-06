@@ -84,6 +84,13 @@
   }
 }
 
+.session-input:focus {
+  @include themify($themes) {
+    border-color: themed('secondaryTextColor');
+    box-shadow: 1px 1px 3px themed('secondaryTextColor');
+  }
+}
+
 .session-input-label {
   font-size: 20px;
   margin-bottom: 5px;

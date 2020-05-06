@@ -90,3 +90,16 @@
     width: calc(100% - 40px);
   }
 }
+
+.notes-search:focus {
+  @include themify($themes) {
+    border-color: themed('secondaryTextColor');
+    box-shadow: 1px 1px 3px themed('secondaryTextColor');
+  }
+}
+
+.notes-search::placeholder {
+  @include themify($themes) {
+    color: themed('primaryTextareaColor');
+  }
+}

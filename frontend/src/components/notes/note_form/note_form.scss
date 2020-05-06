@@ -75,6 +75,13 @@
   }
 }
 
+.note-title-input:focus, .note-tag-input:focus, .notes-editor-wrapper.rdw-editor-wrapper:focus {
+  @include themify($themes) {
+    border-color: themed('secondaryTextColor');
+    box-shadow: 1px 1px 3px themed('secondaryTextColor');
+  }
+}
+
 .note-title-input {
   @include themify($themes) {
     background-color: themed('primaryTextarea');  
@@ -83,6 +90,12 @@
     text-align: center;
     margin: 0 20px;
     width: calc(100% - 40px);
+  }
+}
+
+.note-title-input::placeholder {
+  @include themify($themes) {
+    color: themed('primaryTextareaColor');
   }
 }
 
