@@ -24,9 +24,23 @@ router.post("/",
   }
 );
 
-router.get("/:userId", (req, res) => {
+router.patch("/update", (req, res) => {
+  const filter = { _id: req.body._id };
+  const update = req.body;
+  Note.findOneAndUpdate(filter, update, { new: true })
+    .then(note => res.json(note))
+    .catch(err => res.status(400).json({ unabletoupdate: err}))
+})
+
+router.get("/index/:userId", (req, res) => {
   Note.find({ "author": `${req.params.userId}`})
     .then(notes => res.json(notes))
+    .catch(err => res.status(404).json({ noNotesFound: err }))
+});
+
+router.get("/show/:noteId", (req, res) => {
+  Note.findOne({ "_id": `${req.params.noteId}` })
+    .then(note => res.json(note))
     .catch(err => res.status(404).json({ noNotesFound: err }))
 });
 

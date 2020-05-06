@@ -24,6 +24,7 @@ const App = (props) => {
         <ProtectedRoute exact path="/main" component={MainPage} />
         <ProtectedRoute exact path="/notes/index" component={NoteIndexContainer} />
         <ProtectedRoute exact path="/notes/create" component={NoteFormContainer} />
+        <ProtectedRoute exact path="/notes/:id" component={NoteFormContainer} />
         <AuthRoute exact path="/splash" component={SplashPage} />
       </Switch>
     </div>

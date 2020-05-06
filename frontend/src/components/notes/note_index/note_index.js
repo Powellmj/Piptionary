@@ -98,8 +98,8 @@ class NoteIndex extends React.Component {
             <div>
               Title: {note.title}
             </div>
-            <div>
-              Tags: {note.tags.join(' ')}
+            <div className="note-tags-text">
+              {note.tags.join(' ')}
             </div>
           </div>
         </div>

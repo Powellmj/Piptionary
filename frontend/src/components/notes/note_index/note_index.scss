@@ -187,3 +187,11 @@
 .note-body sub, .note-body sup {
   font-size: 70%;
 }
+
+.note-tags-text {
+  margin-top: 5px;
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

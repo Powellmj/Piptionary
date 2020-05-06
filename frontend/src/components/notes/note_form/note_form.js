@@ -2,6 +2,7 @@ import React from 'react';
 import './note_form.scss'
 import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
@@ -25,7 +26,20 @@ class Notes extends React.Component {
     if (this.props.location.pathname === '/notes/create') {
       this.setState({ editorState: EditorState.createEmpty() })
     } else {
-      
+      this.props.requestNote(this.props.location.pathname.split('/')[2]).then(() => {
+        const blocksFromHtml = htmlToDraft(this.props.notes[this.props.location.pathname.split('/')[2]].body);
+        const { contentBlocks, entityMap } = blocksFromHtml;
+        const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
+        const editorState = EditorState.createWithContent(contentState);
+
+        this.setState({
+          title: this.props.notes[this.props.location.pathname.split('/')[2]].title,
+          contentState: contentState,
+          editorState: editorState,
+          tags: this.props.notes[this.props.location.pathname.split('/')[2]].tags.join(' '),
+        })
+      }
+      )
     }
   }
 
@@ -58,7 +72,13 @@ class Notes extends React.Component {
       author_id: this.props.currentUser.id
     };
 
-    this.props.processForm(note)
+    if (this.props.location.pathname === '/notes/create') {
+      this.props.processForm(note)
+    } else {
+      note._id = this.props.location.pathname.split('/')[2]
+      this.props.updateForm(note)
+    }
+
     const editorState = EditorState.push(this.state.editorState, ContentState.createFromText(''));
     this.setState({
       editorState,
