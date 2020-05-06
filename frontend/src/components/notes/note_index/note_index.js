@@ -77,7 +77,7 @@ class NoteIndex extends React.Component {
       <div className="notes-container">
         <div className="notes-scrollbox">
             <input
-              className="form-control mr-sm-2"
+              className="notes-search form-control mr-sm-2"
               type="search"
               placeholder="Search"
               aria-label="Search"

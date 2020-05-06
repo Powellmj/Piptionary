@@ -80,3 +80,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.notes-search {
+  @include themify($themes) {
+    background-color: themed('primaryTextarea');
+    color: themed('primaryTextareaColor');
+    height: 25px;
+    margin: 0 10px;
+    width: calc(100% - 40px);
+  }
+}

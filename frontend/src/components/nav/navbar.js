@@ -38,8 +38,8 @@ class NavBar extends React.Component {
             <input className="nav-search form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
           </form> */}
           <div className="navbar-session-buttons">
-            <div className="btn btn-primary navbar-button nav-signup" onClick={this.logoutUser}>Logout</div>
             <div className="btn btn-primary navbar-button nav-signup" onClick={this.toggleTheme}>Theme</div>
+            <div className="btn btn-primary navbar-button nav-signup" onClick={this.logoutUser}>Logout</div>
           </div>
         </div>
       );
