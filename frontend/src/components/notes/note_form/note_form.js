@@ -22,8 +22,11 @@ class Notes extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ editorState: EditorState.createEmpty() })
-    this.props.requestAllNotes()
+    if (this.props.location.pathname === '/notes/create') {
+      this.setState({ editorState: EditorState.createEmpty() })
+    } else {
+      
+    }
   }
 
   onEditorStateChange(editorState) {

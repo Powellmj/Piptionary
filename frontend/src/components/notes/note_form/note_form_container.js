@@ -11,7 +11,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestAllNotes: () => dispatch(requestAllNotes()),
     processForm: note => dispatch(createNote(note)),
     deleteNote: noteId => dispatch(deleteNote(noteId))
   }

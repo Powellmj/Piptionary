@@ -23,7 +23,7 @@ class NoteIndex extends React.Component {
 
   componentDidMount() {
     this.setState({ editorState: EditorState.createEmpty() })
-    this.props.requestAllNotes()
+    this.props.requestAllNotes(this.props.currentUser.id)
   }
 
   onEditorStateChange(editorState) {
@@ -58,7 +58,7 @@ class NoteIndex extends React.Component {
   }
 
   handleClick(note = null) {
-    if (!note) {
+    if (!note._id) {
       this.props.history.push('/notes/create')
     } else {
       this.props.history.push(`/notes/${note._id}`)

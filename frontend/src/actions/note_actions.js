@@ -9,24 +9,38 @@ export const receiveNote = note => ({
   note
 });
 
-export const receiveAllNotes = notes => ({
+export const receiveAllUserNotes = notes => ({
   type: RECEIVE_ALL_NOTES,
   notes
 });
+
+// export const receiveAllNotes = notes => ({
+//   type: RECEIVE_ALL_NOTES,
+//   notes
+// });
 
 export const removeNote = noteId => ({
   type: REMOVE_NOTE,
   noteId
 });
 
-export const requestAllNotes = () => dispatch => APIUtil.fetchAllNotes()
+export const requestAllUserNotes = userId => dispatch => APIUtil.fetchAllUserNotes(userId)
   .then(notes => {
     let notesObj = {}
     notes.data.forEach(note => {
       notesObj[note._id] = note
     })
-    dispatch(receiveAllNotes(notesObj))
+    dispatch(receiveAllUserNotes(notesObj))
   })
+
+// export const requestAllNotes = () => dispatch => APIUtil.fetchAllNotes()
+//   .then(notes => {
+//     let notesObj = {}
+//     notes.data.forEach(note => {
+//       notesObj[note._id] = note
+//     })
+//     dispatch(receiveAllNotes(notesObj))
+//   })
 
 export const createNote = note => dispatch => (
   APIUtil.createNote(note).then((response) => {

@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export const createNote = (note) => {
+export const createNote = note => {
   return axios.post('/api/notes/', note);
 };
 
-export const fetchAllNotes = () => {
-  return axios.get('/api/notes/');
+export const fetchAllUserNotes = userId => {
+  return axios.get(`/api/notes/${userId}`);
 };
 
 export const deleteNote = noteId => {

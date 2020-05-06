@@ -24,10 +24,10 @@ router.post("/",
   }
 );
 
-router.get("/", (req, res) => {
-  Note.find()
+router.get("/:userId", (req, res) => {
+  Note.find({ "author": `${req.params.userId}`})
     .then(notes => res.json(notes))
-    .catch(err => res.status(404).json({ noNotesFound: "No notes found" }))
+    .catch(err => res.status(404).json({ noNotesFound: err }))
 });
 
 router.delete("/:id", (req, res) => {
