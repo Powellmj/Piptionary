@@ -5,10 +5,29 @@
     background-color: themed('primaryBackgroundColor');
     display: flex;
     flex-direction: row;
-    height: calc(100% - 60px);
+    height: calc(100vh - 56px);
+    width: calc(100%);
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 }
 
+  ::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0); 
+    width: 10px;
+  } 
+
+  ::-webkit-scrollbar-thumb {
+    @include themify($themes) {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px themed('scrollColor'); 
+    }
+  }
+
 #root {
   width: 100%;
+}
+
+.window {
+  display: flex;
 }

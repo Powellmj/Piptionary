@@ -2,8 +2,6 @@
 
 .notes-container {
   width: 100%;
-  height: calc(100vh - 50px);
-  overflow-y: scroll;
 }
 
 .notes-scrollbox {
@@ -125,8 +123,14 @@
 
 .rdw-dropdown-optionwrapper {
     @include themify($themes) {
-    background-color: themed('accentBackgroundColor');
-    border: themed('primaryBorder');
+      background-color: themed('accentBackgroundColor');
+      border: themed('primaryBorder');
+  }
+  &:hover {
+    @include themify($themes) {
+      background-color: themed('accentBackgroundColor');
+      border: themed('primaryBorder');
+    }
   }
 }
 

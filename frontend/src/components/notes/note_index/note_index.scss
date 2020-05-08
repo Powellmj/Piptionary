@@ -2,19 +2,16 @@
 
 .notes-container {
   width: 100%;
-  height: calc(100vh - 50px);
-  overflow-y: scroll;
-}
-
-.notes-scrollbox {
-  height: fit-content;
   margin: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  overflow: hidden;
 }
 
 .notes-index {
+  margin: 20px;
+  height: fit-content;
   justify-content: center;
 }
 
@@ -104,7 +101,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .notes-scrollbox {
+  .notes-container {
     justify-content: center;
   }
 }

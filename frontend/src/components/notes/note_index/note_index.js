@@ -75,7 +75,6 @@ class NoteIndex extends React.Component {
     return (
       <div className="notes-index">
       <div className="notes-container">
-        <div className="notes-scrollbox">
             <input
               className="notes-search form-control mr-sm-2"
               type="search"
@@ -99,7 +98,6 @@ class NoteIndex extends React.Component {
             </div>
           </div> : null}
             {this.renderNotes()}
-          </div>
         </div>
       </div>
     );

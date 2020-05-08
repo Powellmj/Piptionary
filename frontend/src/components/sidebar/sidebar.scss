@@ -48,6 +48,7 @@
 }
 
 .sidebar-options-list {
+  min-width: 100px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -61,7 +62,12 @@
 }
 
 .sidebar-order {
-  display: flex;
+  @include themify($themes) {
+    background-color: themed('primaryBackgroundColor');
+    width: 260px;
+    display: flex;
+    transition: .2s;
+  }
 }
 
 @media screen and (max-width: 580px) {

@@ -12,18 +12,22 @@ class SideBar extends React.Component {
       document.querySelector('.side-bar-toggler').style.width = '0px'
       document.querySelector('.side-bar-toggler').style.minWidth = '0px'
       document.querySelector('.sidebar-container').style.width = '0px'
+      document.querySelector('.sidebar-order').style.width = '0px'
     } else if (document.querySelector('.sidebar-container').style.width === '0px') {
       document.querySelector('.side-bar-toggler').style.width = '250px'
       document.querySelector('.sidebar-container').style.width = '100%'
       document.querySelector('.side-bar-toggler').style.minWidth = '250px'
+      document.querySelector('.sidebar-order').style.width = '250px'
     } else if (window.innerWidth <= 480) {
       document.querySelector('.side-bar-toggler').style.width = '250px'
       document.querySelector('.sidebar-container').style.width = '100%'
       document.querySelector('.side-bar-toggler').style.minWidth = '250px'
+      document.querySelector('.sidebar-order').style.width = '250px'
     } else if (window.innerWidth >= 480) {
       document.querySelector('.side-bar-toggler').style.width = '0px'
       document.querySelector('.sidebar-container').style.width = '0px'
       document.querySelector('.side-bar-toggler').style.minWidth = '0px'
+      document.querySelector('.sidebar-order').style.width = '00px'
     }
   }
 

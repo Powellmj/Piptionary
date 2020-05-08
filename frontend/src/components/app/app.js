@@ -18,16 +18,18 @@ const App = (props) => {
   return (
   <div className={theme === 'dark' ? "theme-dark main-div" : "theme-light main-div" }>
     <NavBarContainer />
-    <div className="main-content">
-      <SideBarContainer />
-      <Switch>
-        <ProtectedRoute exact path="/main" component={MainPage} />
-        <ProtectedRoute exact path="/notes/index" component={NoteIndexContainer} />
-        <ProtectedRoute exact path="/notes/create" component={NoteFormContainer} />
-        <ProtectedRoute exact path="/notes/:id" component={NoteFormContainer} />
-        <AuthRoute exact path="/" component={SplashPage} />
-      </Switch>
-    </div>
+    <div className="window">
+        <SideBarContainer />
+        <div className="main-content">
+          <Switch>
+            <ProtectedRoute exact path="/main" component={MainPage} />
+            <ProtectedRoute exact path="/notes/index" component={NoteIndexContainer} />
+            <ProtectedRoute exact path="/notes/create" component={NoteFormContainer} />
+            <ProtectedRoute exact path="/notes/:id" component={NoteFormContainer} />
+            <AuthRoute exact path="/" component={SplashPage} />
+          </Switch>
+        </div>
+      </div>
     {/* <Footer /> */}
   </div>
 )};
