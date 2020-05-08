@@ -1,7 +1,6 @@
 import React from 'react';
 import './sidebar.scss'
 import { Link } from 'react-router-dom';
-import sidebar_container from './sidebar_container';
 
 class SideBar extends React.Component {
   constructor(props) {
@@ -11,16 +10,27 @@ class SideBar extends React.Component {
   handleClick() {
     if (document.querySelector('.sidebar-container').style.width === '100%') {
       document.querySelector('.side-bar-toggler').style.width = '0px'
+      document.querySelector('.side-bar-toggler').style.minWidth = '0px'
       document.querySelector('.sidebar-container').style.width = '0px'
-    } else {
-      document.querySelector('.side-bar-toggler').style.width = '300px'
+    } else if (document.querySelector('.sidebar-container').style.width === '0px') {
+      document.querySelector('.side-bar-toggler').style.width = '250px'
       document.querySelector('.sidebar-container').style.width = '100%'
+      document.querySelector('.side-bar-toggler').style.minWidth = '250px'
+    } else if (window.innerWidth <= 480) {
+      document.querySelector('.side-bar-toggler').style.width = '250px'
+      document.querySelector('.sidebar-container').style.width = '100%'
+      document.querySelector('.side-bar-toggler').style.minWidth = '250px'
+    } else if (window.innerWidth >= 480) {
+      document.querySelector('.side-bar-toggler').style.width = '0px'
+      document.querySelector('.sidebar-container').style.width = '0px'
+      document.querySelector('.side-bar-toggler').style.minWidth = '0px'
     }
   }
 
   render() {
     if (this.props.isAuthenticated) {
       return (
+        <div className="sidebar-order">
         <div className="side-bar-toggler">
           <div className="sidebar-container">
             <div className="sidebar-options-list">
@@ -28,6 +38,7 @@ class SideBar extends React.Component {
               <Link className="sidebar-link" to={`/notes/index`}>Notes</Link>
             </div>
           </div>
+        </div>
             <div onClick={this.handleClick} className="sidebar-toggle">|||</div>
         </div>
       );

@@ -52,13 +52,12 @@
     width: 90px;
     font-weight: bold;
   }
-
-    &:hover {
-      @include themify($themes) {
-        background-color: themed('primaryButtonHover');
-        border-color: transparent;
-      }
+  &:hover {
+    @include themify($themes) {
+      background-color: themed('primaryButtonHover');
+      border-color: transparent;
     }
+  }
 }
 
 .nav-login {
@@ -84,4 +83,19 @@
 
 .nav-signup {
   margin: 0px 2px;
+}
+
+.btn-primary {
+  &:active {
+    @include themify($themes) {
+      border-color: themed('secondaryTextColor') !important;
+      background-color: themed('primaryButtonHover') !important;
+    }
+  }
+  &:focus {
+    @include themify($themes) {
+      border-color: themed('secondaryTextColor') !important;
+      box-shadow: 1px 1px 3px themed('secondaryTextColor') !important;
+    }
+  }
 }
