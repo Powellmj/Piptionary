@@ -1,14 +1,5 @@
 @import '../../themes.scss';
 
-.notes-container {
-  width: 100%;
-}
-
-.notes-scrollbox {
-  height: fit-content;
-  margin-bottom: 20px;
-}
-
 .notes-create-note-card {
   margin: 20px;
   width: calc(100% - 40px);

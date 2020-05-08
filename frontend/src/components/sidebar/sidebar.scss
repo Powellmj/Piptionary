@@ -82,4 +82,9 @@
     min-width: 0px;
     width: 0px;
   }
+  .sidebar-order {
+    @include themify($themes) {
+      width: 0px;
+    }
+  }
 }
