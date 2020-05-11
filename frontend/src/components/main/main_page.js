@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MessageContainer from '../messaging/message_container'
 import 'whatwg-fetch';
 import openSocket from 'socket.io-client';
 const socket = openSocket('http://localhost:8000');
@@ -13,12 +14,13 @@ class MainPage extends Component {
   sendSocketIO() {
     socket.emit('example_message', 'demo');
   }
-
+  
   render() {
     return (
       <div>
         <div>
-          <button onClick={this.sendSocketIO}>Send Socket.io</button>
+          {/* <button onClick={this.sendSocketIO}>Send Socket.io</button> */}
+          <MessageContainer />
         </div>
       </div>
     );

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { createNote, requestNote, deleteNote, updateNote } from '../../../actions/note_actions';
-import Notes from './note_form';
+import Message from './message';
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.entities.notes,
+    messages: state.entities.messages,
     currentUser: state.session.user
   };
 };
@@ -21,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Notes);
+)(Message);

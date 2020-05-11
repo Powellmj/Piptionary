@@ -27,7 +27,7 @@ class SideBar extends React.Component {
       document.querySelector('.side-bar-toggler').style.width = '0px'
       document.querySelector('.sidebar-container').style.width = '0px'
       document.querySelector('.side-bar-toggler').style.minWidth = '0px'
-      document.querySelector('.sidebar-order').style.width = '00px'
+      document.querySelector('.sidebar-order').style.width = '0px'
     }
   }
 

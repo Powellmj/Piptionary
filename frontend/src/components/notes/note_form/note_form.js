@@ -14,7 +14,6 @@ class Notes extends React.Component {
       editorState: '',
       contentState: '',
       tags: '',
-      formatting: true
     };
     this.onEditorStateChange = this.onEditorStateChange.bind(this)
     this.onContentStateChange = this.onContentStateChange.bind(this)
