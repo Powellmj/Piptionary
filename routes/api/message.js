@@ -7,19 +7,16 @@ const Message = require('../../models/Message');
 router.post("/",
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateNoteInput(req.body);
+    const { errors, isValid } = validateMessageInput(req.body);
     if (!isValid) {
       return res.status(400).json(errors);
     }
 
-    const newNote = new Note({
-      title: req.body.title,
+    const newMessage = new Message({
       body: req.body.body,
-      content: req.body.content,
-      tags: req.body.tags,
       author: req.body.author_id
     });
-    newNote.save().then(note => res.json(note));
+    newMessage.save().then(message => res.json(message));
     return res
   }
 );
@@ -27,8 +24,8 @@ router.post("/",
 router.patch("/update", (req, res) => {
   const filter = { _id: req.body._id };
   const update = req.body;
-  Note.findOneAndUpdate(filter, update, { new: true })
-    .then(note => res.json(note))
+  Message.findOneAndUpdate(filter, update, { new: true })
+    .then(message => res.json(message))
     .catch(err => res.status(400).json({ unabletoupdate: err }))
 })
 
@@ -38,15 +35,15 @@ router.get("/index/:userId", (req, res) => {
     .catch(err => res.status(404).json({ noNotesFound: err }))
 });
 
-router.get("/show/:noteId", (req, res) => {
-  Note.findOne({ "_id": `${req.params.noteId}` })
-    .then(note => res.json(note))
-    .catch(err => res.status(404).json({ noNotesFound: err }))
+router.get("/show/:messageId", (req, res) => {
+  Message.findOne({ "_id": `${req.params.messageId}` })
+    .then(message => res.json(message))
+    .catch(err => res.status(404).json({ noMessagesFound: err }))
 });
 
 router.delete("/:id", (req, res) => {
   const filter = { "_id": `${req.params.id}` };
-  Note.deleteOne(filter)
+  Message.deleteOne(filter)
     .then(result => console.log(`Deleted ${result.deletedCount} item.`))
     .catch(err => console.error(`Delete failed with error: ${err}`))
   return req.params.id
