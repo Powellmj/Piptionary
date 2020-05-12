@@ -35,6 +35,12 @@ router.get("/index/:userId", (req, res) => {
     .catch(err => res.status(404).json({ noMessagesFound: err }))
 });
 
+router.get("/index/", (req, res) => {
+  Message.find()
+    .then(messages => res.json(messages))
+    .catch(err => res.status(404).json({ noMessagesFound: err }))
+});
+
 router.get("/show/:messageId", (req, res) => {
   Message.findOne({ "_id": `${req.params.messageId}` })
     .then(message => res.json(message))

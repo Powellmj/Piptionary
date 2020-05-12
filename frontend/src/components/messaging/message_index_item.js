@@ -169,31 +169,31 @@ class Message extends React.Component {
             </li>
           )
         }
-          if (author != message.username || time != message.created_at.slice(14, 16)) {
-            author = message.username
-            time = message.created_at.slice(14, 16)
-            return (
-              <li key={message.id} className={`message-box-item`}>
-                <div>
-                  <p className="message-username">{message.username}</p>
-                  <Moment className="message-sender-timestamp" format="h:mm A" >{message.created_at}</Moment>
-                </div>
-                <div className="message-content">
-                  {this.attachMessage(message)}
-                </div>
-              </li>
-            )
-          } else {
-            time = message.created_at.slice(14, 16)
-            return (
-              <li key={message.id} className='message-box-item'>
-                <div className="message-content-no-sender" >
-                  <Moment className="message-no-sender-timestamp" format="h:mm" >{message.created_at}</Moment>
-                  {this.attachMessage(message)}
-                </div>
-              </li>
-            )
-          }
+        if (author != message.username || time != message.created_at.slice(14, 16)) {
+          author = message.username
+          time = message.created_at.slice(14, 16)
+          return (
+            <li key={message.id} className={`message-box-item`}>
+              <div>
+                <p className="message-username">{message.username}</p>
+                <Moment className="message-sender-timestamp" format="h:mm A" >{message.created_at}</Moment>
+              </div>
+              <div className="message-content">
+                {this.attachMessage(message)}
+              </div>
+            </li>
+          )
+        } else {
+          time = message.created_at.slice(14, 16)
+          return (
+            <li key={message.id} className='message-box-item'>
+              <div className="message-content-no-sender" >
+                <Moment className="message-no-sender-timestamp" format="h:mm" >{message.created_at}</Moment>
+                {this.attachMessage(message)}
+              </div>
+            </li>
+          )
+        }
       });
     }
   };
@@ -221,7 +221,7 @@ class Message extends React.Component {
             toolbar={{
               options: ['inline', 'colorPicker', 'link'],
             }} />
-            <div className="new-conversation-submit" onClick={this.handleSubmit}>Create</div>
+          <div className="new-conversation-submit" onClick={this.handleSubmit}>Create</div>
         </form>
       </div>
     );

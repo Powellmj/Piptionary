@@ -1,6 +1,7 @@
 import * as APIUtil from '../util/message_api_util';
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const RECEIVE_ALL_USER_MESSAGES = "RECEIVE_ALL_USER_MESSAGES";
+export const RECEIVE_ALL_MESSAGES = "RECEIVE_ALL_MESSAGES";
 export const REMOVE_MESSAGE = "REMOVE_MESSAGE";
 
 export const receiveMessage = message => ({
@@ -13,10 +14,10 @@ export const receiveAllUserMessages = message => ({
   message
 });
 
-// export const receiveAllMessages = messages => ({
-//   type: RECEIVE_ALL_MESSAGES,
-//   messages
-// });
+export const receiveAllMessages = messages => ({
+  type: RECEIVE_ALL_MESSAGES,
+  messages
+});
 
 export const removeMessage = messageId => ({
   type: REMOVE_MESSAGE,
@@ -37,14 +38,14 @@ export const requestMessage = messageId => dispatch => APIUtil.fetchMessage(mess
     dispatch(receiveMessage(message.data))
   })
 
-// export const requestAllMessages = () => dispatch => APIUtil.fetchAllMessages()
-//   .then(messages => {
-//     let messagesObj = {}
-//     messages.data.forEach(message => {
-//       messagesObj[message._id] = message
-//     })
-//     dispatch(receiveAllMessages(messagesObj))
-//   })
+export const requestAllMessages = () => dispatch => APIUtil.fetchAllMessages()
+  .then(messages => {
+    let messagesObj = {}
+    messages.data.forEach(message => {
+      messagesObj[message._id] = message
+    })
+    dispatch(receiveAllMessages(messagesObj))
+  })
 
 export const createMessage = message => dispatch => (
   APIUtil.createMessage(message).then((response) => {
