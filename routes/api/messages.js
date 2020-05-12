@@ -30,15 +30,15 @@ router.patch("/update", (req, res) => {
 })
 
 router.get("/index/:userId", (req, res) => {
-  Note.find({ "author": `${req.params.userId}` })
-    .then(notes => res.json(notes))
-    .catch(err => res.status(404).json({ noNotesFound: err }))
+  Message.find({ "author": `${req.params.userId}` })
+    .then(messages => res.json(messages))
+    .catch(err => res.status(404).json({ noMessagesFound: err }))
 });
 
 router.get("/show/:messageId", (req, res) => {
   Message.findOne({ "_id": `${req.params.messageId}` })
     .then(message => res.json(message))
-    .catch(err => res.status(404).json({ noMessagesFound: err }))
+    .catch(err => res.status(404).json({ MessagesFound: err }))
 });
 
 router.delete("/:id", (req, res) => {

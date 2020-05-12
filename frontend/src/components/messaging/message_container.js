@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createNote, requestNote, deleteNote, updateNote } from '../../../actions/note_actions';
+import { createMessage, requestMessage, deleteMessage, updateMessage } from '../../actions/message_actions';
 import Message from './message';
 
 const mapStateToProps = (state) => {
@@ -11,10 +11,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestNote: noteId => dispatch(requestNote(noteId)),
-    processForm: note => dispatch(createNote(note)),
-    updateForm: note => dispatch(updateNote(note)),
-    deleteNote: noteId => dispatch(deleteNote(noteId))
+    requestMessage: messageId => dispatch(requestMessage(messageId)),
+    processForm: message => dispatch(createMessage(message)),
+    updateMessage: message => dispatch(updateMessage(message)),
+    deleteMessage: messageId => dispatch(deleteMessage(messageId))
   }
 }
 

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const express = require("express");
 const app = express();
 const users = require("./routes/api/users");
-const message = require("./routes/api/message");
+const message = require("./routes/api/messages");
 const notes = require("./routes/api/notes");
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 require('./config/passport')(passport);
 app.use("/api/users", users);
-app.use("/api/message", message);
+app.use("/api/messages", message);
 app.use("/api/notes", notes);
 
 // Socket.io
@@ -31,10 +31,11 @@ io.on('connection', function (socket) {
   socket.on('disconnect', function () {
     console.log('User Disconnected');
   });
-  socket.on('example_message', function (msg) {
-    console.log('message: ' + msg);
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);
   });
 });
+
 io.listen(8000);
 
 // MongoDB
