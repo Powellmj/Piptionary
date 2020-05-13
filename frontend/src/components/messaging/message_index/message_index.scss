@@ -10,12 +10,15 @@
     display: flex; 
     flex-direction: column-reverse;
     overflow-y: scroll;
-    height: calc(100vh - 147px);
+    height: calc(100vh - 152px);
     width: 100%;
     top: 0;
     border: themed('primaryBorder');
     color: themed('primaryTextColor');
-    min-width: 361px;
+    min-width: 350px;
+  }
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -25,6 +28,7 @@
     display: flex;
     flex-direction: column;
     height: auto;
+    min-width: 350px;
     padding: 5px 0;
   }
 }
