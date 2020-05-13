@@ -6,7 +6,7 @@
   right: 0;
   display: flex;
   flex-direction: column-reverse;
-  width: 463px;
+  width: 350px;
 }
 
 .messages-editor {
@@ -28,10 +28,9 @@
   @include themify($themes) {
     background-color: themed('primaryBackgroundColor');
     border: themed('primaryBorder');
+    justify-content: center;
     height: 42px;
     border-top: 0px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
     margin-top: -1px;
   }
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MessageContainer from '../messaging/message_index/message_index_container'
 
 class MainPage extends Component {
   constructor(props) {
@@ -10,10 +9,9 @@ class MainPage extends Component {
   
   render() {
     return (
-      // <div>
-      // nothing here yet. smiley face
-        <MessageContainer />
-      // </div>
+      <div>
+        nothing here yet. smiley face
+      </div>
     );
   }
 }

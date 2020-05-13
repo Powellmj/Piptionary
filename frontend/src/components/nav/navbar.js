@@ -1,5 +1,6 @@
 import React from 'react';
 import './navbar.scss'
+import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -34,10 +35,9 @@ class NavBar extends React.Component {
       return (
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto"></ul>
-          {/* <form className="form-inline my-2 my-lg-0">
-            <input className="nav-search form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-          </form> */}
           <div className="navbar-session-buttons">
+            <Link className="btn btn-primary navbar-button nav-signup" to={`/main`}>Home</Link>
+            <Link className="btn btn-primary navbar-button nav-signup" to={`/notes/index`}>Notes</Link>
             <div className="btn btn-primary navbar-button nav-signup" onClick={this.toggleTheme}>Theme</div>
             <div className="btn btn-primary navbar-button nav-signup" onClick={this.logoutUser}>Logout</div>
           </div>
