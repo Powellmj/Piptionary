@@ -109,7 +109,7 @@ class Notes extends React.Component {
 
   render() {
     return (
-      <div className="notes-container">
+      <div className="notes-form-container">
         <div className="notes-create-note-card card text-center">
           <div className="card-header">
             <input

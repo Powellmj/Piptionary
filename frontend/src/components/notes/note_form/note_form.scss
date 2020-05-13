@@ -1,8 +1,14 @@
 @import '../../themes.scss';
 
+.notes-form-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
 .notes-create-note-card {
-  margin: 20px;
-  width: calc(100% - 40px);
+  width: 100%;
 }
 
 .notes-create-note-body {
