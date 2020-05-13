@@ -25,7 +25,7 @@ app.use("/api/notes", notes);
 
 // MongoDB
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+const server = app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 const db = require('./config/keys').mongoURI;
 mongoose
@@ -34,16 +34,18 @@ mongoose
   .catch(err => console.log(err));
 
 // Socket.io
-const server = require('http').createServer(app);
-const io = require('socket.io')(server);
-server.listen(process.env.PORT || 8000);
 
-io.on('connection', function (socket) {
-  console.log('a user connected');
-  socket.on('disconnect', function () {
-    console.log('User Disconnected');
+// const socketIO = require('socket.io')
+// const io = socketIO(server);
+
+io = require('socket.io').listen(server),
+
+  io.on('connection', function (socket) {
+    console.log('a user connected');
+    socket.on('disconnect', function () {
+      console.log('User Disconnected');
+    });
+    socket.on('chat message', (msg) => {
+      io.emit('chat message', msg);
+    });
   });
-  socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
-  });
-});
