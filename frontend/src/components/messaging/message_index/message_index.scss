@@ -1,5 +1,9 @@
 @import '../../themes.scss';
 
+.messager-container {
+  height: 100%;
+}
+
 .messager {
   @include themify($themes) {
     position: absolute;
