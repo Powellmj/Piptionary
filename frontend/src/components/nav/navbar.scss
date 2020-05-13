@@ -1,5 +1,9 @@
 @import '../themes.scss';
 
+.navbar {
+ z-index: 1;
+}
+
 .navbar-light {
   @include themify($themes) {
     background-color: themed('secondaryBackgroundColor');  

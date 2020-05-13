@@ -6,11 +6,12 @@
     display: flex; 
     flex-direction: column-reverse;
     overflow-y: scroll;
-    height: calc(100% - 150px);
+    height: calc(100% - 152px);
     width: 463px;
     top: 65px;
     right: 0;
-    margin-top: -11px;
+    margin-top: -8px;
+    margin-left: 25px;
     border: themed('primaryBorder');
     color: themed('primaryTextColor');
   }
