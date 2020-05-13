@@ -80,9 +80,13 @@ class Message extends React.Component {
 
   render() {
     return (
-      <div className="message-index">
-        {this.renderMessages(this.props.messages)}
-        <MessageTextAreaContainer />
+      <div className="messager-container">
+        <div className="messager">
+          <div className="message-index">
+            {this.renderMessages(this.props.messages)}
+          </div>
+        </div>
+            <MessageTextAreaContainer />
       </div>
     );
   }

@@ -1,10 +1,22 @@
-.message-index {
+.messager {
+  position: absolute;
+  display: flex; 
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+  height: calc(100% - 154px);
   width: 465px;
+  top: 68px;
+  margin-top: -11px;
   border: 1px solid black;
+  left: 248px;
+  color: black;
+}
+
+.message-index {
   display: flex;
   flex-direction: column;
   height: fit-content;
-  margin-bottom: 100px;
+  margin-bottom: 5px;
 }
 
 .message-index-item, .current-user-message-index-item {
