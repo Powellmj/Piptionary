@@ -17,6 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1.25rem 0;
   }
 }
 
@@ -35,6 +36,7 @@
 
 .notes-toolbar {
   @include themify($themes) {
+    justify-content: center;
     background-color: themed('primaryBackgroundColor');
     border: themed('primaryBorder');
     border-top-left-radius: 8px;
@@ -110,7 +112,7 @@
   }
 }
 
-.rdw-dropdown-wrapper.rdw-fontsize-dropdown {
+.rdw-dropdown-wrapper {
   @include themify($themes) {
     background-color: themed('accentBackgroundColor');
     border: themed('primaryBorder');

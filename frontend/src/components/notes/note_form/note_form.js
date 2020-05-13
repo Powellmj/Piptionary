@@ -130,6 +130,18 @@ class Notes extends React.Component {
               editorClassName="notes-editor"
               toolbar={{
                 options: ['inline', 'fontSize', 'list', 'textAlign', 'colorPicker', 'link'],
+                inline: {
+                  inDropdown: false,
+                },
+                list: {
+                  inDropdown: true,
+                },
+                textAlign: {
+                  inDropdown: true,
+                },
+                link: {
+                  inDropdown: true,
+                }
               }} />
           </div>
           <div className="notes-create-note-footer card-footer">

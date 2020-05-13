@@ -113,6 +113,12 @@ class MessageTextArea extends React.Component {
           handleReturn={this.handleReturn}
           toolbar={{
             options: ['inline', 'colorPicker', 'link'],
+            inline: {
+              options: ['bold', 'italic', 'underline', 'strikethrough']
+            },
+            link: {
+              inDropdown: true,
+            }
           }} />
       </form>
     );

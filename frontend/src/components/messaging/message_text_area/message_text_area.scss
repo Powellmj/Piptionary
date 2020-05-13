@@ -6,6 +6,7 @@
   right: 0;
   display: flex;
   flex-direction: column-reverse;
+  width: 463px;
 }
 
 .messages-editor {
@@ -31,5 +32,14 @@
 
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .messages-editor-wrapper  {
+    @include themify($themes) {
+      width: 100%;
+      left: 0;
+    }
   }
 }
