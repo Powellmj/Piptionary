@@ -10,12 +10,10 @@ class MainPage extends Component {
   
   render() {
     return (
-      <div>
-        <div>
-          nothing here yet. smiley face
-          <MessageContainer />
-        </div>
-      </div>
+      // <div>
+      // nothing here yet. smiley face
+        <MessageContainer />
+      // </div>
     );
   }
 }

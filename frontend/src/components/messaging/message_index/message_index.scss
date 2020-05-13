@@ -1,33 +1,50 @@
-.message-index-item {
-  
+.message-index {
+  width: 465px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin-bottom: 100px;
+}
+
+.message-index-item, .current-user-message-index-item {
+  display: inline-block;
+  position: relative;
+  left: 0;
+  padding: 20px;
+  max-width: 60%;
+  width: fit-content;
+  background-color: cadetblue;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.current-user-message-index-item {
+  right: 0;
+  margin-left: auto;
+  background-color: salmon;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .message-username {
-  display: inline-block;
-  margin-top: 20px;
-  margin-left: 60px;
 }
 
 .message-body {
-  display: inline-block;
 }
 
 .message-timestamp {
-  margin-left: 10px;
-  width: 50px;
-  display: inline-block;
 }
 
 .message-username ~ .message-timestamp {
-  width: calc(100% - 120px);
 }
 
 .message-username ~ .message-body {
-  width: calc(100% - 120px);
-  margin-left: 60px;
 }
 
 .date-item {
-  position: relative;
-  left: 50%;
+  width: 100%;
+  text-align: center;
 }

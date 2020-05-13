@@ -4,12 +4,6 @@ import openSocket from 'socket.io-client';
 import MessageIndexItem from './message_index_item'
 import MessageTextAreaContainer from '../message_text_area/message_text_area_container'
 const socket = process.env.NODE_ENV === 'production' ? openSocket('https://piptionary.herokuapp.com/') : openSocket('http://localhost:5000')
-// if (process.env.NODE_ENV === 'production') {
-//   socket = openSocket('https://piptionary.herokuapp.com/');
-// } else {
-//   socket = openSocket('https://localhost:5000');
-// }
-
 
 class Message extends React.Component {
   constructor(props) {
@@ -62,19 +56,23 @@ class Message extends React.Component {
       })
       let author = '';
       let time = '';
-
+      
       return datedMessages.map((message, idx) => {
+        let currentUser = false;
+        if (message.author && message.author._id === this.props.currentUser.id) {
+          currentUser = true;
+        }
         if (message.date) {
           author = '';
-          return <MessageIndexItem message={message} key={idx + "timestamp"} />
+          return <MessageIndexItem message={message} key={idx + "timestamp"} currentUser={currentUser}/>
         }
         if (author != message.author.username || time != message.created_at.slice(14, 16)) {
           author = message.author.username
           time = message.created_at.slice(14, 16)
-          return <MessageIndexItem message={message} author={author} key={message._id} />
+          return <MessageIndexItem message={message} author={author} key={message._id} currentUser={currentUser}/>
         } else {
           time = message.created_at.slice(14, 16)
-          return <MessageIndexItem message={message} key={message._id} />
+          return <MessageIndexItem message={message} key={message._id} currentUser={currentUser}/>
         }
       });
     }
@@ -82,7 +80,7 @@ class Message extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="message-index">
         {this.renderMessages(this.props.messages)}
         <MessageTextAreaContainer />
       </div>

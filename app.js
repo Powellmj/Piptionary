@@ -34,10 +34,6 @@ mongoose
   .catch(err => console.log(err));
 
 // Socket.io
-
-// const socketIO = require('socket.io')
-// const io = socketIO(server);
-
 io = require('socket.io').listen(server),
 
   io.on('connection', function (socket) {
