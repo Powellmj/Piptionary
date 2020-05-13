@@ -31,7 +31,7 @@ class MessageIndexItem extends React.Component {
       return (
         <div className={this.props.currentUser ? "current-user-message-index-item" : "message-index-item"}>
             {author ? <div className="message-username">{message.author.username}</div> : null}
-            <Moment className="message-timestamp" format="h:mm" >{message.created_at}</Moment>
+            {/* <Moment className="message-timestamp" format="h:mm" >{message.created_at}</Moment> */}
             {this.attachMessage(message)}
         </div>
       )
