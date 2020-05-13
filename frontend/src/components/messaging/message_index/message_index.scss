@@ -1,7 +1,7 @@
 @import '../../themes.scss';
 
 .messager-container {
-  height: calc(100vh - 56px);
+  min-height: calc(100vh - 56px);
 }
 
 .messager {
@@ -10,7 +10,7 @@
     display: flex; 
     flex-direction: column-reverse;
     overflow-y: scroll;
-    height: calc(100% - 95px);
+    height: calc(100vh - 152px);
     width: 100%;
     right: -11px;
     top: 0;
@@ -25,7 +25,7 @@
     background-color: themed('secondaryBackgroundColor');
     display: flex;
     flex-direction: column;
-    height: fit-content;
+    height: auto;
     padding-bottom: 5px;
   }
 }
