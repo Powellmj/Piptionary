@@ -48,8 +48,9 @@ export const requestAllMessages = () => dispatch => APIUtil.fetchAllMessages()
   })
 
 export const createMessage = message => dispatch => (
-  APIUtil.createMessage(message).then((response) => {
-    dispatch(receiveMessage(response.data))
+  APIUtil.createMessage(message)
+  .then((response) => {
+    // dispatch(requestMessage(response.data._id))
     return response.data
   }
     // , err => (

@@ -1,0 +1,33 @@
+.message-index-item {
+  
+}
+
+.message-username {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 60px;
+}
+
+.message-body {
+  display: inline-block;
+}
+
+.message-timestamp {
+  margin-left: 10px;
+  width: 50px;
+  display: inline-block;
+}
+
+.message-username ~ .message-timestamp {
+  width: calc(100% - 120px);
+}
+
+.message-username ~ .message-body {
+  width: calc(100% - 120px);
+  margin-left: 60px;
+}
+
+.date-item {
+  position: relative;
+  left: 50%;
+}

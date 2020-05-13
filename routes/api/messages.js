@@ -37,12 +37,20 @@ router.get("/index/:userId", (req, res) => {
 
 router.get("/index/", (req, res) => {
   Message.find()
+    .populate({
+      path: 'author',
+      select: ['username']
+    })
     .then(messages => res.json(messages))
     .catch(err => res.status(404).json({ noMessagesFound: err }))
 });
 
 router.get("/show/:messageId", (req, res) => {
   Message.findOne({ "_id": `${req.params.messageId}` })
+    .populate({
+      path: 'author',
+      select: ['username']
+    })
     .then(message => res.json(message))
     .catch(err => res.status(404).json({ MessagesFound: err }))
 });

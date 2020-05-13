@@ -20,7 +20,7 @@ const NoteSchema = new Schema({
     author:
     {
       type: Schema.Types.ObjectId,
-      ref: "users"
+      ref: "User"
     },
     created_at:
     {
