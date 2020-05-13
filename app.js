@@ -36,6 +36,8 @@ mongoose
 // Socket.io
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
+server.listen(process.env.PORT || 8000);
+
 io.on('connection', function (socket) {
   console.log('a user connected');
   socket.on('disconnect', function () {
@@ -45,12 +47,3 @@ io.on('connection', function (socket) {
     io.emit('chat message', msg);
   });
 });
-
-io.listen(process.env.PORT || 8000);
-// io.listen(8000);
-
-
-  // server = require('http').createServer(app),
-  // io = require('socket.io').listen(server),
-
-  // server.listen(process.env.PORT || 3000);
