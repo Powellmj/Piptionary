@@ -4,7 +4,7 @@
   @include themify($themes) {
     background-color: themed('accentBackgroundColor');
     position: relative;
-    height: calc(100vh - 50px);
+    height: calc(100% - 50px);
     width: 100%;
     max-width: 350px;
     overflow: hidden;
