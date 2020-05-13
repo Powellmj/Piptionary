@@ -38,9 +38,7 @@ class SideBar extends React.Component {
           <div onClick={this.handleClick} className="sidebar-toggle">|||</div>
           <div className="side-bar-toggler">
             <div className="sidebar-container">
-              <div className="sidebar-options-list">
-                <MessageContainer />
-              </div>
+              <MessageContainer />
             </div>
           </div>
         </div>
