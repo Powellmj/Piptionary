@@ -1,8 +1,11 @@
 @import '../../themes.scss';
 
-.messages-editor-wrapper {
+.message-input-form {
   position: absolute;
   bottom: -5px;
+}
+
+.messages-editor-wrapper {
   min-height: 100px;
   right: 0px;
   display: flex;

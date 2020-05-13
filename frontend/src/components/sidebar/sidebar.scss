@@ -4,9 +4,9 @@
   @include themify($themes) {
     background-color: themed('accentBackgroundColor');
     position: relative;
-    height: 100%;
     width: 100%;
     max-width: 350px;
+    height: calc(100vh - 56px);
     overflow: hidden;
     z-index: 1;
     transition: .2s;
@@ -40,6 +40,7 @@
   position: relative;
   display: flex;
   min-width: 350px;
+  height: calc(100vh - 56px);
   transition: .3s;
   overflow: hidden;
 }
@@ -62,6 +63,7 @@
   @include themify($themes) {
     background-color: themed('primaryBackgroundColor');
     width: 350px;
+    height: calc(100vh - 56px);
     display: flex;
     transition: .2s;
   }

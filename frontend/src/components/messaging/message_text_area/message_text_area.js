@@ -102,7 +102,7 @@ class MessageTextArea extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="message-input-form">
         <Editor
           editorState={this.state.editorState}
           onEditorStateChange={this.onEditorStateChange}
