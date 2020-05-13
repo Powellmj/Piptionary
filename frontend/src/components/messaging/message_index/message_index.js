@@ -3,7 +3,13 @@ import './message_index.scss'
 import openSocket from 'socket.io-client';
 import MessageIndexItem from './message_index_item'
 import MessageTextAreaContainer from '../message_text_area/message_text_area_container'
-const socket = openSocket('https://piptionary.herokuapp.com/');
+const socket = process.env.NODE_ENV === 'production' ? openSocket('https://piptionary.herokuapp.com/') : openSocket('http://localhost:5000')
+// if (process.env.NODE_ENV === 'production') {
+//   socket = openSocket('https://piptionary.herokuapp.com/');
+// } else {
+//   socket = openSocket('https://localhost:5000');
+// }
+
 
 class Message extends React.Component {
   constructor(props) {

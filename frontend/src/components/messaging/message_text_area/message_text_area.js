@@ -5,7 +5,12 @@ import draftToHtml from 'draftjs-to-html';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import openSocket from 'socket.io-client';
-const socket = openSocket('https://piptionary.herokuapp.com/');
+const socket = process.env.NODE_ENV === 'production' ? openSocket('https://piptionary.herokuapp.com/') : openSocket('http://localhost:5000')
+// if (process.env.NODE_ENV === 'production') {
+//   socket = openSocket('https://piptionary.herokuapp.com/');
+// } else {
+//   socket = openSocket('https://localhost:5000');
+// }
 
 class MessageTextArea extends React.Component {
   constructor(props) {
