@@ -3,7 +3,8 @@
 .messages-editor-wrapper {
   position: absolute;
   bottom: 0px;
-  right: 0;
+  min-width: 96px;
+  right: 0px;
   display: flex;
   flex-direction: column-reverse;
   width: 350px;
