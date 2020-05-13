@@ -31,6 +31,7 @@
   position: relative;
   left: 0;
   padding: 20px;
+  margin: 1px 0;
   max-width: 60%;
   width: fit-content;
   background-color: cadetblue;
@@ -59,6 +60,9 @@
 }
 
 .message-timestamp {
+  margin-left: 10px;
+  font-size: 12px;
+  color: rgb(48, 48, 48);
 }
 
 .message-username ~ .message-timestamp {
