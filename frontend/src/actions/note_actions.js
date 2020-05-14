@@ -67,7 +67,7 @@ export const updateNote = note => dispatch => (
   )
 )
 
-export const deleteNote = noteId => dispatch => (
-  APIUtil.deleteNote(noteId),
-  dispatch(removeNote(noteId))
-)
+export const deleteNote = noteId => dispatch => {
+  APIUtil.deleteNote(noteId);
+  return dispatch(removeNote(noteId));
+}

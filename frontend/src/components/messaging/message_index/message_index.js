@@ -66,7 +66,7 @@ class Message extends React.Component {
           author = '';
           return <MessageIndexItem message={message} key={idx + "timestamp"} currentUser={currentUser}/>
         }
-        if (author != message.author.username || time != message.created_at.slice(14, 16)) {
+        if (author !== message.author.username || time !== message.created_at.slice(14, 16)) {
           author = message.author.username
           time = message.created_at.slice(14, 16)
           return <MessageIndexItem message={message} author={author} key={message._id} currentUser={currentUser}/>

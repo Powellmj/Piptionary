@@ -10,7 +10,7 @@ class NoteIndex extends React.Component {
     };
     this.renderNotes = this.renderNotes.bind(this)
     this.handleClick = this.handleClick.bind(this)
-    this.filterGroups = this.filterGroups.bind(this)
+    this.filterNotes = this.filterNotes.bind(this)
   }
 
 
@@ -24,21 +24,23 @@ class NoteIndex extends React.Component {
 
   componentDidMount() {
     this.props.requestAllNotes(this.props.currentUser.id).then(() => {
-      this.filterGroups()
+      this.filterNotes()
     })
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e => { 
+      this.setState({
+        [field]: e.currentTarget.value
+      });
+    }
   }
 
-  filterGroups() {
+  filterNotes() {
     let filteredNotes = Object.values(this.props.notes).filter(note => {
-      return note.content.toLowerCase().includes(this.state.search.toLowerCase()) || 
-      note.tags.join('').toLowerCase().includes(this.state.search.toLowerCase()) ||
-      note.title.toLowerCase().includes(this.state.search.toLowerCase())
+      return note.content.toLowerCase().includes(this.state.search.toLowerCase()) ||
+        note.tags.join('').toLowerCase().includes(this.state.search.toLowerCase()) ||
+        note.title.toLowerCase().includes(this.state.search.toLowerCase())
     })
     this.state.notes = filteredNotes
   }
@@ -71,7 +73,6 @@ class NoteIndex extends React.Component {
   }
 
   render() {
-    this.filterGroups()
     return (
       <div className="notes-index">
       <div className="notes-container">

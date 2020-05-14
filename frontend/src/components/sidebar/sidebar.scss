@@ -25,7 +25,6 @@
     border-right: none;
     height: 50px;
     width: 10px;
-    margin-left: -10px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     top: 0;
@@ -39,10 +38,19 @@
 .side-bar-toggler {
   position: relative;
   display: flex;
-  min-width: 350px;
+  margin-left: -10px;
+  min-width: 360px;
   height: 100%;
   transition: .3s;
   overflow: hidden;
+}
+
+.toggler-open {
+  min-width: 360px;
+}
+
+.toggler-closed {
+  min-width: 0px;
 }
 
 .sidebar-options-list {
@@ -57,33 +65,4 @@
   text-decoration: none;
   font-size: 20px;
   margin-bottom: 10px;
-}
-
-.sidebar-order {
-  @include themify($themes) {
-    background-color: themed('primaryBackgroundColor');
-    width: 350px;
-    height: 100%;
-    display: flex;
-    transition: .2s;
-  }
-}
-
-@media screen and (max-width: 580px) {
-  .sidebar-container {
-    position: relative;
-    max-width: 100vw;
-    width: 0px;
-  }
-  .side-bar-toggler {
-    position: relative;
-    max-width: 100vw;
-    min-width: 0px;
-    width: 0px;
-  }
-  .sidebar-order {
-    @include themify($themes) {
-      width: 0px;
-    }
-  }
 }

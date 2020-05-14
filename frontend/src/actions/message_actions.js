@@ -69,7 +69,7 @@ export const updateMessage = message => dispatch => (
   )
 )
 
-export const deleteMessage = messageId => dispatch => (
-  APIUtil.deleteMessage(messageId),
-  dispatch(removeMessage(messageId))
-)
+export const deleteMessage = messageId => dispatch => {
+  APIUtil.deleteMessage(messageId);
+  return dispatch(removeMessage(messageId))
+}

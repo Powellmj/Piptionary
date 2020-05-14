@@ -36,11 +36,10 @@ export const clearSessionErrors = () => ({
   type: CLEAR_SESSION_ERRORS
 });
 
-export const changeSession = formType => dispatch => (
-  dispatch(changeSessionFlag(formType)),
-  dispatch(clearSessionErrors()
-  )
-)
+export const changeSession = formType => dispatch => {
+  dispatch(changeSessionFlag(formType));
+  return dispatch(clearSessionErrors())
+}
 
 export const signup = user => dispatch => (
   APIUtil.signup(user).then(() => (
