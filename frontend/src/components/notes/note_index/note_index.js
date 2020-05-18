@@ -13,6 +13,10 @@ class NoteIndex extends React.Component {
     this.filterNotes = this.filterNotes.bind(this)
   }
 
+  componentDidMount() {
+    this.props.requestAllNotes(this.props.currentUser.id).then(() => {
+    })
+  }
 
   handleClick(note = null) {
     if (!note._id) {
@@ -20,12 +24,6 @@ class NoteIndex extends React.Component {
     } else {
       this.props.history.push(`/notes/${note._id}`)
     }
-  }
-
-  componentDidMount() {
-    this.props.requestAllNotes(this.props.currentUser.id).then(() => {
-      this.filterNotes()
-    })
   }
 
   update(field) {
@@ -73,17 +71,18 @@ class NoteIndex extends React.Component {
   }
 
   render() {
+    this.filterNotes()
     return (
       <div className="notes-index">
-      <div className="notes-container">
-            <input
-              className="notes-search form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              onChange={this.update('search')}
-              value={this.state.search} />
-            { !this.state.search ? <div onClick={this.handleClick} className="note-card card">
+        <div className="notes-container">
+          <input
+            className="notes-search form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            onChange={this.update('search')}
+            value={this.state.search} />
+          { !this.state.search ? <div onClick={this.handleClick} className="note-card card">
             <div className="note-body card-body">
               Hurry! Write it down before you forget it!
             </div>

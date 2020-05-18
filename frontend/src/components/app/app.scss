@@ -1,7 +1,7 @@
 @import '../themes.scss';
 
 .main-content {
-    @include themify($themes) {
+  @include themify($themes) {
     background-color: themed('primaryBackgroundColor');
     display: flex;
     flex-direction: row;
@@ -12,20 +12,16 @@
   }
 }
 
-  ::-webkit-scrollbar {
-    background-color: rgba(0, 0, 0, 0); 
-    width: 10px;
-  } 
+::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, 0); 
+  width: 10px;
+} 
 
-  ::-webkit-scrollbar-thumb {
-    @include themify($themes) {
-      border-radius: 10px;
-      -webkit-box-shadow: inset 0 0 6px themed('scrollColor'); 
-    }
+::-webkit-scrollbar-thumb {
+  @include themify($themes) {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px themed('scrollColor'); 
   }
-
-#root {
-  width: 100%;
 }
 
 .window {
