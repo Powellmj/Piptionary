@@ -1,4 +1,4 @@
-import * as APIUtil from '../util/message_api_util';
+import * as APIUtil from '../util/character_api_util';
 export const RECEIVE_CHARACTER = "RECEIVE_CHARACTER";
 export const RECEIVE_ALL_USER_CHARACTERS = "RECEIVE_ALL_USER_CHARACTERS";
 
@@ -8,7 +8,7 @@ export const receiveCharacter = character => ({
 });
 
 export const receiveAllUserCharacters = character => ({
-  type: RECEIVE_ALL_USER_CHARACTER,
+  type: RECEIVE_ALL_USER_CHARACTERS,
   character
 });
 
