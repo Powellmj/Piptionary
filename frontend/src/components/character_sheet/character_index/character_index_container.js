@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { requestCharacter } from '../../actions/character_actions';
-import Character from './character';
+import { createCharacter } from '../../../actions/character_actions';
+import CharacterIndex from './character_index';
 
 const mapStateToProps = (state) => {
   return {
@@ -11,11 +11,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestCharacter: charId => dispatch(requestCharacter(charId))
+    createCharacter: charId => dispatch(createCharacter(charId))
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Character);
+)(CharacterIndex);

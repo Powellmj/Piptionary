@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CharacterContainer from '../character_sheet/character_container'
+import CharacterContainer from '../character_sheet/character_index/character_index_container'
 
 class MainPage extends Component {
   
