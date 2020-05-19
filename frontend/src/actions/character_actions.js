@@ -7,9 +7,9 @@ export const receiveCharacter = character => ({
   character
 });
 
-export const receiveAllUserCharacters = character => ({
+export const receiveAllUserCharacters = characters => ({
   type: RECEIVE_ALL_USER_CHARACTERS,
-  character
+  characters
 });
 
 export const requestAllUserCharacters = userId => dispatch => 
