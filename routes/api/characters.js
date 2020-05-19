@@ -22,8 +22,8 @@ router.patch("/update", (req, res) => {
 })
 
 router.get("/index/:userId", (req, res) => {
-  Character.find({ "author": `${req.params.userId}` })
-    .then(character => res.json(character))
+  Character.find({ "player": `${req.params.userId}` })
+  .then(characters => {res.json(characters)})
     .catch(err => res.status(404).json({ noCharacterFound: err }))
 });
 
