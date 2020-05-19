@@ -16,12 +16,14 @@ class Character extends React.Component {
   componentDidMount() {
     this.props.requestCharacter(this.state._id).then(() => {
       this.setState(this.props.characters[this.state._id])
+      this.setupDrag()
     })
   }
 
   update(field) {
+    let posState = this.state[`${field}`].split("|").slice(0,2)
     return e => this.setState({
-      [field]: e.currentTarget.value
+      [field]: posState.join("|") + "|" + e.currentTarget.value
     });
   }
 
@@ -77,12 +79,12 @@ class Character extends React.Component {
           <div key={`input-${idx}`} className="character-sheet-input-attr-field-container" id={`${field}`}>
             <label className="character-sheet-attr-input-label">{`${field}`}</label>
             <input type="text"
-              value={this.state[`${field}`]}
+              value={this.state[`${field}`].split("|")[2]}
               onChange={this.update(`${field}`)}
               className="character-sheet-attr-input"
             />
             <input type="text"
-              value={this.state[`${field}`]}
+              value={this.state[`${field}`].split("|")[2]}
               onChange={this.update(`${field}`)}
               className="character-sheet-attr-input-secondary"
             />
@@ -94,7 +96,7 @@ class Character extends React.Component {
           <div key={`input-${idx}`} className="character-sheet-input-field-container" id={`${field}`}>
             <div className="character-sheet-input-field-header" id={`${field}header`}>|||</div>
             <input type="text"
-              value={this.state[`${field}`]}
+              value={this.state[`${field}`].split("|")[2]}
               onChange={this.update(`${field}`)}
               className="character-sheet-input"
             />
@@ -106,16 +108,17 @@ class Character extends React.Component {
   }
 
   setupDrag() {
-   return this.props.fields.forEach(field => {
-     if (document.getElementById(field)) {
-      this.dragElement(document.getElementById(field))
-     }
+    this.props.fields.forEach(field => {
+      if (document.getElementById(field)) {
+        this.dragElement(document.getElementById(field))
+      }
     })
   }
 
   handleSubmit(e) {
     e.preventDefault();
     let character = this.state;
+    character.player = this.props.currentUser.id
     this.props.updateCharacter(character)
   }
 
@@ -123,8 +126,7 @@ class Character extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="character-form">
-       { this.renderFields() }
-       { this.state.Strength ? this.setupDrag() : null }
+        { this.state.Strength ? this.renderFields() : null }
         <input
           type="submit"
           value="Submit"
