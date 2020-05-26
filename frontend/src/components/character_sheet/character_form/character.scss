@@ -14,12 +14,18 @@
 }
 
 .character-sheet-input-field-header {
-  padding: 2px 10px;
+  display: none;
+  position: absolute;
+  padding: 2px 2px;
   cursor: move;
   z-index: 10;
   background-color: gray;
   color: #fff;
-  height: 20px;
+  font-size: 10px;
+  width: 13px;
+  top: -8px;
+  left: -8px;
+  border-radius: 100%;
 }
 
 .character-sheet-input-attr-field-container {

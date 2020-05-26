@@ -30,8 +30,8 @@ router.get("/index/:userId", (req, res) => {
 router.get("/show/:characterId", (req, res) => {
   Character.findOne({ "_id": `${req.params.characterId}` })
     .populate({
-      path: 'author',
-      select: ['username']
+      path: 'attributes',
+      select: ['title', 'body', 'pos']
     })
     .then(character => res.json(character))
     .catch(err => res.status(404).json({ charactersFound: err }))
