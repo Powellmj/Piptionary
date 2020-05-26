@@ -5,7 +5,7 @@ class Character extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      _id: this.props.location.pathname.split('/')[2],
     };
     this.renderFields = this.renderFields.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,12 +14,16 @@ class Character extends React.Component {
   }
 
   componentDidMount() {
-    this.setState(this.props.attribute)
+    this.props.requestCharacter(this.state._id).then(() => {
+      this.setState(this.props.characters[this.state._id])
+      this.setupDrag()
+    })
   }
 
-  update() {
+  update(field) {
+    let posState = this.state[`${field}`].split("|").slice(0, 3)
     return e => this.setState({
-      body: e.currentTarget.value
+      [field]: posState.join("|") + "|" + e.currentTarget.value
     });
   }
 
@@ -64,41 +68,51 @@ class Character extends React.Component {
       // otherwise, move the DIV from anywhere inside the DIV:
       elmnt.onmousedown = dragMouseDown;
     }
-    elmnt.style.top = `${this.state.pos.split('|')[0]}`
-    elmnt.style.left = `${this.state.pos.split('|')[1]}`
+    elmnt.style.top = `${this.state[`${elmnt.id}`].split('|')[1]}`
+    elmnt.style.left = `${this.state[`${elmnt.id}`].split('|')[2]}`
   }
 
   renderFields() {
-    if ('Strength Constitution Dexterity Wisdom Intelligence Charisma'.includes(this.state.title)) {
-      return (
-        <div key={this.state._id} className="character-sheet-input-attr-field-container" id={this.state.title}>
-          <label className="character-sheet-attr-input-label">{`${this.state.title}`}</label>
-          <input type="text"
-            value={this.state.body}
-            onChange={this.update(this.state)}
-            className="character-sheet-attr-input"
-          />
-          <input type="text"
-            value={this.state.body}
-            onChange={this.update(this.state)}
-            className="character-sheet-attr-input-secondary"
-          />
-          <div className="character-sheet-input-field-header" id={`${this.state.title}header`}>|||</div>
-        </div>
-      )
-    } else {
-      return (
-        <div key={this.state._id} className="character-sheet-input-field-container" id={this.state.title}>
-          <div className="character-sheet-input-field-header" id={`${this.state.title}header`}>|||</div>
-          <input type="text"
-            value={this.state.body}
-            onChange={this.update(this.state)}
-            className="character-sheet-input"
-          />
-          <label className="character-sheet-input-label">{`${this.state.title}`}</label>
-        </div>
-      )
-    }
+    return this.props.fields.map((field, idx) => {
+      if (idx < 6) {
+        return (
+          <div key={`input-${idx}`} className="character-sheet-input-attr-field-container" id={`${field}`}>
+            <label className="character-sheet-attr-input-label">{`${field}`}</label>
+            <input type="text"
+              value={this.state[`${field}`].split("|")[3]}
+              onChange={this.update(`${field}`)}
+              className="character-sheet-attr-input"
+            />
+            <input type="text"
+              value={this.state[`${field}`].split("|")[3]}
+              onChange={this.update(`${field}`)}
+              className="character-sheet-attr-input-secondary"
+            />
+            <div className="character-sheet-input-field-header" id={`${field}header`}>|||</div>
+          </div>
+        )
+      } else {
+        return (
+          <div key={`input-${idx}`} className="character-sheet-input-field-container" id={`${field}`}>
+            <div className="character-sheet-input-field-header" id={`${field}header`}>|||</div>
+            <input type="text"
+              value={this.state[`${field}`].split("|")[3]}
+              onChange={this.update(`${field}`)}
+              className="character-sheet-input"
+            />
+            <label className="character-sheet-input-label">{`${field}`}</label>
+          </div>
+        )
+      }
+    })
+  }
+
+  setupDrag() {
+    this.props.fields.forEach(field => {
+      if (document.getElementById(field)) {
+        this.dragElement(document.getElementById(field))
+      }
+    })
   }
 
   handleSubmit(e) {
@@ -110,16 +124,16 @@ class Character extends React.Component {
 
 
   render() {
-    if (this.state.pos) {
-      return (
-        <div>
-          {this.renderFields()}
-          {setTimeout(() => this.dragElement(document.getElementById(this.state.title)), 1)}
-        </div>
-      )
-    } else {
-      return <div></div>
-    }
+    return (
+      <form onSubmit={this.handleSubmit} className="character-form">
+        {this.state.Strength ? this.renderFields() : null}
+        <input
+          type="submit"
+          value="Submit"
+          className="btn btn-primary btn-lg session-submit"
+        />
+      </form>
+    );
   }
 }
 

@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 const CharacterSchema = new Schema({
   attributes: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Attribute"
+      type: String,
     }
   ],
   player:
