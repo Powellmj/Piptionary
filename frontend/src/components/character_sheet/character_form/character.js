@@ -61,7 +61,6 @@ class Character extends React.Component {
       newPos[1] = `${elmnt.style.top}`;
       newPos[2] = `${elmnt.style.left}`;
       newPos = newPos.join('|')
-      console.log(newPos)
       this.state.attributes[parseInt(elmnt.getAttribute('idx'))] = newPos
     }
 
@@ -83,7 +82,6 @@ class Character extends React.Component {
   }
 
   renderFields() {
-    console.log(this.state.attributes)
     return this.state.attributes.map((field, idx) => {
       if ('Strength Constitution Dexterity Wisdom Intelligence Charisma'.includes(field.split('|')[0])) {
         return (
@@ -99,6 +97,18 @@ class Character extends React.Component {
               onChange={this.update(idx)}
               className="character-sheet-attr-input-secondary"
             />
+            <div className="character-sheet-input-field-header" id={`${field.split('|')[0]}header`}>|||</div>
+          </div>
+        )
+      } else if ('Armor Class Passive Perception Hit Points Hit Dice Speed Initiative'.includes(field.split('|')[0])) {
+        return (
+          <div key={`input-${idx}`} className="character-sheet-input-attr-field-container" idx={`${idx}`} id={`${field.split('|')[0]}`}>
+            <input type="text"
+              value={this.state.attributes[idx].split("|")[3]}
+              onChange={this.update(idx)}
+              className="character-sheet-attr-input"
+            />
+            <label className="character-sheet-attr-input-label">{`${field.split('|')[0]}`}</label>
             <div className="character-sheet-input-field-header" id={`${field.split('|')[0]}header`}>|||</div>
           </div>
         )
