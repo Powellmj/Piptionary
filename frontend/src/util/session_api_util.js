@@ -17,7 +17,7 @@ export const login = (userData) => {
 };
 
 export const changeUserTheme = (user, theme) => {
-  return axios.patch(`/api/users/${user.id}/theme`, {user, theme});
+  return axios.patch(`/api/users/${user.id}/theme`, { user, theme });
 };
 
 export const getTheme = (userId) => {

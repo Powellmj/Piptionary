@@ -4,7 +4,6 @@ const app = express();
 const users = require("./routes/api/users");
 const message = require("./routes/api/messages");
 const character = require("./routes/api/characters");
-const attribute = require("./routes/api/attributes");
 const notes = require("./routes/api/notes");
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -24,7 +23,6 @@ require('./config/passport')(passport);
 app.use("/api/users", users);
 app.use("/api/messages", message);
 app.use("/api/characters", character);
-app.use("/api/attributes", attribute);
 app.use("/api/notes", notes);
 
 // MongoDB
