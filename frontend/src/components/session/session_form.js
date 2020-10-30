@@ -1,51 +1,39 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { signup, login } from '../../actions/session_actions';
+import { useDispatch, useSelector } from 'react-redux';
 import './session.scss'
 
-class SessionForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      username: '',
-      password: ''
-    };
+const SessionForm = () => {
+  const dispatch = useDispatch()
+  const formType = useSelector(state => state.session.formType)
+  const errors = useSelector(state => state.errors.session)
+  const [state, setState] = useState(() => ({ email: '', username: '', password: '' }))
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.instructions = this.instructions.bind(this);
-    this.clearedErrors = false;
+  const instructions = () => (
+    formType === 'signup' ? 'Enter your information to create your account!' : 'Enter your email and password to log in!'
+  )
+
+  const update = (value, field) => {
+    setState(prevState => ({ ...prevState, [field]: value }))
   }
 
-  instructions() {
-    return this.props.formType === 'signup' ? 'Enter your information to create your account!' : 'Enter your email and password to log in!'
-  }
-
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
-  }
-
-  handleSubmit(e) {
+  const handleSubmit = e => {
     e.preventDefault();
-    let user = {
-      email: this.state.email.toLowerCase(),
-      password: this.state.password,
-    };
-    if (this.props.formType === 'signup') {
-      user.username = this.state.username
-      this.props.signup(user)
+    let user = { email: state.email.toLowerCase(), password: state.password };
+    if (formType === 'signup') {
+      user.username = state.username
+      dispatch(signup(user))
     } else {
-      this.props.login(user)
+      dispatch(login(user))
     }
   }
 
-  renderErrors() {
-    if (this.props.errors.length) {
+  const renderErrors = () => {
+    if (errors.length) {
       return (
         <div className="errors">
           <ul className="errors-list">
-            {this.props.errors.map((error, i) => (
+            {errors.map((error, i) => (
               <li className="alert alert-danger error" key={`error-${i}`}>
                 <i className="fas fa-skull-crossbones session-error-icon"></i>
                 {error}
@@ -57,53 +45,51 @@ class SessionForm extends React.Component {
     }
   }
 
-  render() {
-    return (
-      <div className="session-form-container">
-        <form onSubmit={this.handleSubmit} className="session-form-box">
-          <div className="welcome">Welcome to Piptionary!</div>
-          <div className="session-instructions">{this.instructions()}</div>
-          <div className="session-form">
-            <div className="form-group session-input-field">
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="LiaMe@piptionary.com"
-                className="form-control form-control-lg session-input"
-              />
-              <label className="session-input-label">Email:</label>
-            </div>
-              {this.props.formType === 'signup' ?
-              <div className="form-group session-input-field">
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                placeholder="A rose by any other name"
-                className="form-control form-control-lg session-input"
-              />
-              <label className="session-input-label">Username:</label>
-            </div>
-             : null}
-            <div className="form-group session-input-field">
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Make it super secure!"
-                className="form-control form-control-lg session-input"
-              />
-              <label className="session-input-label">Password:</label>
-            </div>
-              <input 
-                type="submit" 
-                value="Submit"
-                className="btn btn-primary btn-lg session-submit" 
-              />
+  return (
+    <div className="session-form-container">
+      <form onSubmit={handleSubmit} className="session-form-box">
+        <div className="welcome">Welcome to Piptionary!</div>
+        <div className="session-instructions">{instructions()}</div>
+        <div className="session-form">
+          <div className="form-group session-input-field">
+            <input type="text"
+              value={state.email}
+              onChange={e => update(e.currentTarget.value, 'email')}
+              placeholder="LiaMe@piptionary.com"
+              className="form-control form-control-lg session-input"
+            />
+            <label className="session-input-label">Email:</label>
           </div>
-          {this.renderErrors()}
-        </form>
-      </div>
-    );
-  }
+            {formType === 'signup' ?
+            <div className="form-group session-input-field">
+            <input type="text"
+              value={state.username}
+              onChange={e => update(e.currentTarget.value, 'username')}
+              placeholder="A rose by any other name"
+              className="form-control form-control-lg session-input"
+            />
+            <label className="session-input-label">Username:</label>
+          </div>
+            : null}
+          <div className="form-group session-input-field">
+            <input type="password"
+              value={state.password}
+              onChange={e => update(e.currentTarget.value, 'password')}
+              placeholder="Make it super secure!"
+              className="form-control form-control-lg session-input"
+            />
+            <label className="session-input-label">Password:</label>
+          </div>
+            <input 
+              type="submit" 
+              value="Submit"
+              className="btn btn-primary btn-lg session-submit" 
+            />
+        </div>
+        {renderErrors()}
+      </form>
+    </div>
+  );
 }
 
-export default withRouter(SessionForm);
+export default SessionForm;

@@ -23,9 +23,9 @@ export const requestAllUserCharacters = userId => dispatch =>
   })
 
 export const requestCharacter = characterId => dispatch => APIUtil.fetchCharacter(characterId)
-  .then(character => {
+  .then(character => (
     dispatch(receiveCharacter(character.data))
-  })
+  ))
 
 export const createCharacter = character => dispatch => (
   APIUtil.createCharacter(character)

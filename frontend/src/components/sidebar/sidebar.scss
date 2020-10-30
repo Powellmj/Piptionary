@@ -1,5 +1,5 @@
-@import '../themes.scss';
-
+// @import '../themes.scss';
+@import '../../../public/theme.scss';
 .sidebar-container {
   @include themify($themes) {
     background-color: themed('accentBackgroundColor');

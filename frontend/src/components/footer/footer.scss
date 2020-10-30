@@ -1,5 +1,5 @@
-@import '../themes.scss';
-
+// @import '../themes.scss';
+@import '../../../public/theme.scss';
 .footer-container {
   @include themify($themes) {
     position: relative;

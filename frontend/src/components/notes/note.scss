@@ -1,4 +1,120 @@
-@import '../../themes.scss';
+@import '../../../public/theme.scss';
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// NOTE INDEX SCSS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.notes-container {
+  width: 100%;
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.notes-index {
+  width: 100%;
+  margin: 20px;
+  height: fit-content;
+  justify-content: center;
+}
+
+.note-body {
+  @include themify($themes) {
+    margin: 0 auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100%;
+    height: 200px;
+    background-color: themed('primaryTextarea');
+    overflow: hidden;
+  }
+}
+
+.note-card {
+  @include themify($themes) {
+    width: 200px;
+    margin: 20px 10px;
+    cursor: pointer;
+    transition: .2s;
+    &:hover {
+      border: 1px solid themed('secondaryButtonAccent');
+    }
+  }
+}
+
+.notes-tags {
+  @include themify($themes) {
+    display: inline-block;
+    width: calc(100% - 1px);
+    background-color: themed('secondaryBackgroundColor');
+    color: themed('primaryTextColor');
+    padding: 10px 20px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+}
+
+.note-body ol li {
+  margin-left: 10px;
+  list-style: decimal;
+}
+
+.note-body ul li {
+  margin-left: 10px;
+  list-style: disc;
+}
+
+.note-body ul, .note-body ol {
+  margin-left: 10px;
+}
+
+.note-body sub, .note-body sup {
+  font-size: 70%;
+}
+
+.note-tags-text {
+  margin-top: 5px;
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notes-search {
+  @include themify($themes) {
+    background-color: themed('primaryTextarea');
+    color: themed('primaryTextareaColor');
+    height: 25px;
+    margin: 0 10px;
+    width: calc(100% - 40px);
+  }
+}
+
+.notes-search:focus {
+  @include themify($themes) {
+    border-color: themed('secondaryTextColor');
+    box-shadow: 1px 1px 3px themed('secondaryTextColor');
+  }
+}
+
+.notes-search::placeholder {
+  @include themify($themes) {
+    color: themed('primaryTextareaColor');
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .notes-container {
+    justify-content: center;
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// NOTE FORM SCSS //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 .notes-form-container {
   width: 100%;

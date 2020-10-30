@@ -1,4 +1,4 @@
-@import '../themes.scss';
+@import '../../../public/theme.scss';
 
 .splash-container, .splash-left-container {
   @include themify($themes) {

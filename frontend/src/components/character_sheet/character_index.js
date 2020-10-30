@@ -1,28 +1,22 @@
-import React from 'react';
-import { withRouter } from 'react-router'
-import './character_index.scss'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { createCharacter, requestAllUserCharacters } from '../../actions/character_actions';
+import { useHistory } from "react-router-dom";
+import './character.scss'
 
-class Character extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-    this.handleClick = this.handleClick.bind(this)
-  }
+const CharacterIndex = () => {
+  const dispatch = useDispatch();
+  const currentUserID = useSelector(state => state.session.user.id);
+  const characters = useSelector(state => state.entities.characters);
+  const history = useHistory();
 
-  componentDidMount() {
-    this.props.requestAllUserCharacters(this.props.currentUser.id)
-  }
+  useEffect(() => {
+    dispatch(requestAllUserCharacters(currentUserID))
+  }, [dispatch, currentUserID]);
 
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
-  }
-
-  handleClick(char) {
+  const handleClick = char => {
     if (char) {
-      this.props.history.push(`/characters/${char._id}`)
+      history.push(`/characters/${char._id}`)
     } else {
         let attributes = [
           "Acrobatics|335px|210px|",
@@ -63,14 +57,14 @@ class Character extends React.Component {
           "Wisdom|542px|91px|",
           "Wisdom Saving|275px|210px|"
         ]
-      let character = { "player": this.props.currentUser._id, "attributes": attributes }
-      this.props.createCharacter(character).then(char => this.props.history.push(`/characters/${char._id}`))
+      let character = { "player": currentUserID, "attributes": attributes }
+      dispatch(createCharacter(character)).then(char => history.push(`/characters/${char._id}`))
     }
   }
 
-  renderCharacters() {
-    return Object.values(this.props.characters).map(character => (
-      <div key={character._id} onClick={() => this.handleClick(character)} className="note-card card">
+  const renderCharacters = () => {
+    return Object.values(characters).map(character => (
+      <div key={character._id} onClick={() => handleClick(character)} className="note-card card">
         <div className="note-background">
           <div className="note-body card-body">
             {character._id}
@@ -90,14 +84,12 @@ class Character extends React.Component {
     ))
   }
 
-  render() {
-    return (
-      <div className="notes-form-container">
-        <div className="create-character" onClick={() => this.handleClick(null)}>Create new character</div>
-        { this.renderCharacters() }
-      </div>
-    );
-  }
+  return (
+    <div className="notes-form-container">
+      <div className="create-character" onClick={() => handleClick(null)}>Create new character</div>
+      { renderCharacters() }
+    </div>
+  );
 }
 
-export default withRouter(Character);
+export default CharacterIndex;

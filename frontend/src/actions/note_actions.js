@@ -34,9 +34,9 @@ export const requestAllUserNotes = userId => dispatch => APIUtil.fetchAllUserNot
   })
 
 export const requestNote = noteId => dispatch => APIUtil.fetchNote(noteId)
-  .then(note => {
+  .then(note => (
     dispatch(receiveNote(note.data))
-  })
+  ))
 
 // export const requestAllNotes = () => dispatch => APIUtil.fetchAllNotes()
 //   .then(notes => {

@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from "react-redux";
+import MessageIndex from '../messaging/message_index'
 import './sidebar.scss'
-import MessageContainer from '../messaging/message_index/message_index_container'
 
-class SideBar extends React.Component {
-  
-  componentDidMount() {
-    let sidebartoggler = () => {
+const SideBar = () => {
+  const isAuthenticated = useSelector(state => state.session.isAuthenticated);
+  useEffect(() => {
+    const sidebartoggler = () => {
       if (window.innerWidth <= 580) {
         document.querySelector('.side-bar-toggler').className = 'side-bar-toggler toggler-closed'
       } else if (window.innerWidth > 580) {
@@ -13,9 +14,9 @@ class SideBar extends React.Component {
       }
     }
     window.onresize = sidebartoggler;
-  }
+  }, [])
 
-  handleClick() {
+  const handleClick = () => {
     if (document.querySelector('.side-bar-toggler.toggler-open')) {
       document.querySelector('.side-bar-toggler').className = 'side-bar-toggler toggler-closed'
     } else {
@@ -23,20 +24,15 @@ class SideBar extends React.Component {
     }
   }
 
-  render() {
-    if (this.props.isAuthenticated) {
-      return (
-        <div className="side-bar-toggler toggler-open">
-          <div onClick={this.handleClick} className="sidebar-toggle">|||</div>
-          <div className="sidebar-container">
-            <MessageContainer />
-          </div>
-        </div>
-      );
-    } else {
-      return null
-    }
-  }
+  return (
+    isAuthenticated ?
+    <div className="side-bar-toggler toggler-open">
+      <div onClick={handleClick} className="sidebar-toggle">|||</div>
+      <div className="sidebar-container">
+        <MessageIndex />
+      </div>
+    </div> : null
+  )
 }
 
 export default SideBar;

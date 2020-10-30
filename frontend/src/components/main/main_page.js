@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
-import CharacterContainer from '../character_sheet/character_index/character_index_container'
+import React from 'react';
+import CharacterIndex from '../character_sheet/character_index'
 
-class MainPage extends Component {
-  
-  render() {
-    return (
-      <div>
-        nothing here yet.
-        <CharacterContainer/>
-      </div>
-    );
-  }
+const MainPage = () => {
+  return (
+    <div>
+      nothing here yet.
+      <CharacterIndex />
+    </div>
+  );
 }
 
 export default MainPage;
