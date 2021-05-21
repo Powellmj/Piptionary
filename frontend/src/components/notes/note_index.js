@@ -8,10 +8,10 @@ const NoteIndex = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const notes = useSelector(state => state.entities.notes)
-  const currentUserID = useSelector(state => state.session.user.id);
+  const currentUser = useSelector(state => state.session.user);
   const [state, setState] = useState(() => ({ search: '', notes: [], title: '', tags: '' }))
 
-  useEffect(() => { dispatch(requestAllUserNotes(currentUserID)) }, [dispatch, currentUserID]);
+  useEffect(() => { dispatch(requestAllUserNotes(currentUser.id)) }, [dispatch, currentUser]);
 
   const handleClick = note => {
     if (!note) return history.push('/notes/create')

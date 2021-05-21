@@ -24,17 +24,24 @@ const MessageIndex = () => {
       let today = `${new Date()}`.slice(0, 15)
       let yesterday = `${new Date(today - 1)}`.slice(0, 15)
    
-      Object.values(messages).sort((a, b) => new Date(a.created_at) - new Date(b.created_at)).forEach(message => {
+      Object.values(messages)
+      .sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+      .forEach(message => {
         let messageCreatedDate = `${new Date(message.created_at)}`.slice(0, 15)
 
         if (messageCreatedDate !== currentDate) {
           currentDate = messageCreatedDate;
-          if (today === messageCreatedDate) datedMessages.push({ date: 'Today', recent: true });
-          else if (yesterday === messageCreatedDate) datedMessages.push({ date: 'Yesterday', recent: true });
-          else datedMessages.push({ date: messageCreatedDate })
+          if (today === messageCreatedDate) {
+            datedMessages.push({ date: 'Today', recent: true });
+          } else if (yesterday === messageCreatedDate) {
+            datedMessages.push({ date: 'Yesterday', recent: true });
+          } else { 
+            datedMessages.push({ date: messageCreatedDate })
+          }
         }
         datedMessages.push(message)
       })
+      
       let author = '';
       let time = '';
       

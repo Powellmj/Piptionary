@@ -8,7 +8,7 @@ import MainPage from './main/main_page';
 import NoteIndex from './notes/note_index';
 import NoteForm from './notes/note_form';
 import CharacterForm from './character_sheet/character_form';
-import SideBarContainer from './sidebar/sidebar_container';
+import SideBar from './sidebar/sidebar';
 import SplashPage from './splash/splash_page';
 import './app.scss'
 
@@ -32,7 +32,7 @@ const App = () => {
             <AuthRoute exact path="/" component={SplashPage} />
           </Switch>
         </div>
-        <SideBarContainer />
+        <SideBar />
       </div>
   </div>
 )};

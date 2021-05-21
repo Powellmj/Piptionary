@@ -11,7 +11,7 @@ const socket = process.env.NODE_ENV === 'production' ? openSocket('https://pipti
 
 const MessageTextArea = () => {
   const [state, setState] = useState(() => ({ editorState: EditorState.createEmpty(), contentState: ''}))
-  const currentUserID = useSelector(state => state.session.user.id);
+  const currentUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onEditorStateChange = editorState => {
@@ -26,9 +26,8 @@ const MessageTextArea = () => {
     if (e.shiftKey) return 'not-handled'
 
     const content = JSON.stringify(convertToRaw(state.editorState.getCurrentContent()))
-    const message = { body: draftToHtml(JSON.parse(content)), author_id: currentUserID };
-    
-    if (state.contentState.blocks.some(block =>  (block.text !== ""))) {
+    const message = { body: draftToHtml(JSON.parse(content)), author_id: currentUser.id };
+    if (state.contentState.blocks.some(block => block.text !== "")) {
       dispatch(createMessage(message)).then(message => {
         socket.emit('chat message', `${message._id}`);
         handleClear()
